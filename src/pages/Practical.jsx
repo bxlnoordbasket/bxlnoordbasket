@@ -183,7 +183,7 @@ export default function Practical() {
                 <strong>Vrijdag</strong>
 
                 <span>
-                  Karel Buls middelbareschool
+                  Hoofdstedelijk Atheneum Karel Buls
                   <br />
                   Mutsaardlaan 67, Brussel
                 </span>
