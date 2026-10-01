@@ -38,8 +38,21 @@ jobs:
         env:
           VITE_FORMSPREE_ENDPOINT: ${{ secrets.VITE_FORMSPREE_ENDPOINT }}
 
-      - name: Create SPA fallback
-        run: cp dist/index.html dist/404.html
+      - name: Create static route pages
+        run: |
+          mkdir -p dist/praktisch
+          mkdir -p dist/over-bnb
+          mkdir -p dist/contact
+          mkdir -p dist/privacy
+          mkdir -p dist/steun-stad-brussel
+
+          cp dist/index.html dist/praktisch/index.html
+          cp dist/index.html dist/over-bnb/index.html
+          cp dist/index.html dist/contact/index.html
+          cp dist/index.html dist/privacy/index.html
+          cp dist/index.html dist/steun-stad-brussel/index.html
+
+          cp dist/index.html dist/404.html
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
