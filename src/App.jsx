@@ -8,6 +8,10 @@ import Practical from './pages/Practical';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import BrusselsSupport from './pages/BrusselsSupport';
+import Privacy from './pages/Privacy';
+import NotFound from './pages/NotFound';
+
+import './site-extras.css';
 
 export default function App() {
   return (
@@ -16,30 +20,14 @@ export default function App() {
 
       <main>
         <Routes>
-          <Route
-            path="/"
-            element={<Home />}
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/praktisch" element={<Practical />} />
+          <Route path="/over-bnb" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/steun-stad-brussel" element={<BrusselsSupport />} />
+          <Route path="/privacy" element={<Privacy />} />
 
-          <Route
-            path="/praktisch"
-            element={<Practical />}
-          />
-
-          <Route
-            path="/over-bnb"
-            element={<About />}
-          />
-
-          <Route
-            path="/contact"
-            element={<Contact />}
-          />
-
-          <Route
-            path="/steun-stad-brussel"
-            element={<BrusselsSupport />}
-          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 

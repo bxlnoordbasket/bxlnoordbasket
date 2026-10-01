@@ -9,13 +9,15 @@ const navItems = [
   ['Contact', '/contact'],
 ];
 
+const supportUrl =
+  'https://steunactie.be/actie/steun-brussel-noord-basket/-76097';
+
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="site-header">
       <div className="header-inner page-width">
-
         <NavLink
           to="/"
           className="brand"
@@ -23,7 +25,7 @@ export default function Header() {
           onClick={() => setOpen(false)}
         >
           <img
-            src={`${import.meta.env.BASE_URL}assets/bnb-logo-green.png`}
+            src="/assets/bnb-logo-green.png"
             alt="Brussel Noord Basket logo"
           />
 
@@ -55,11 +57,23 @@ export default function Header() {
           ))}
         </nav>
 
+        {/* DESKTOP CTA */}
         <a
-          href="https://steunactie.be/actie/steun-brussel-noord-basket/-76097"
+          href={supportUrl}
           target="_blank"
           rel="noreferrer"
           className="header-cta hide-tablet"
+        >
+          Steun ons
+          <span>→</span>
+        </a>
+
+        {/* MOBILE / TABLET CTA */}
+        <a
+          href={supportUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="mobile-header-cta"
         >
           Steun ons
           <span>→</span>
@@ -72,9 +86,12 @@ export default function Header() {
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? (
+            <X size={24} />
+          ) : (
+            <Menu size={24} />
+          )}
         </button>
-
       </div>
     </header>
   );

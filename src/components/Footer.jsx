@@ -8,7 +8,6 @@ function InstagramIcon({ size = 16 }) {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
       <rect
@@ -20,7 +19,6 @@ function InstagramIcon({ size = 16 }) {
         stroke="currentColor"
         strokeWidth="2"
       />
-
       <circle
         cx="12"
         cy="12"
@@ -28,13 +26,7 @@ function InstagramIcon({ size = 16 }) {
         stroke="currentColor"
         strokeWidth="2"
       />
-
-      <circle
-        cx="17.5"
-        cy="6.5"
-        r="1.25"
-        fill="currentColor"
-      />
+      <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" />
     </svg>
   );
 }
@@ -46,10 +38,9 @@ function FacebookIcon({ size = 16 }) {
       height={size}
       viewBox="0 0 24 24"
       fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <path d="M13.5 22v-9h3l.5-3h-3.5V8.2c0-.9.3-1.7 1.8-1.7H17V3.8c-.4-.1-1.5-.2-2.7-.2-2.7 0-4.6 1.7-4.6 4.8V10H7v3h2.7v9h3.8Z" />
+      <path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5H17V3.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10H8v3h2.8v8h2.9Z" />
     </svg>
   );
 }
@@ -58,12 +49,10 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="page-width footer-top">
-
-        {/* BRAND */}
         <div className="footer-brand-wrap">
           <div className="brand footer-brand">
             <img
-              src={`${import.meta.env.BASE_URL}assets/bnb-logo-green.png`}
+              src="/assets/bnb-logo-green.png"
               alt="Brussel Noord Basket logo"
             />
 
@@ -77,16 +66,13 @@ export default function Footer() {
           </div>
 
           <p>
-            Meer dan basketbal. Een club waar spelers,
-            coaches, ouders en supporters samen groeien.
+            Meer dan basketbal. Een club waar spelers, coaches,
+            ouders en supporters samen groeien.
           </p>
         </div>
 
-        {/* PAGINA'S */}
         <div className="footer-links">
-          <h3>
-            Pagina&apos;s
-          </h3>
+          <h3>Pagina&apos;s</h3>
 
           <NavLink to="/">
             Home
@@ -103,13 +89,14 @@ export default function Footer() {
           <NavLink to="/contact">
             Contact
           </NavLink>
+
+          <NavLink to="/privacy">
+            Privacy
+          </NavLink>
         </div>
 
-        {/* CONTACT */}
         <div className="footer-links">
-          <h3>
-            Contact
-          </h3>
+          <h3>Contact</h3>
 
           <a href="mailto:bxlnoordbasket@gmail.com">
             <Mail size={16} />
@@ -135,11 +122,8 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* STEUN ONS */}
         <div className="footer-cta-card">
-          <h3>
-            Help onze club groeien.
-          </h3>
+          <h3>Help onze club groeien.</h3>
 
           <a
             className="button button-green"
@@ -151,13 +135,26 @@ export default function Footer() {
             <span>→</span>
           </a>
         </div>
-
       </div>
 
       <div className="footer-bottom page-width">
-        <span>
-          © {new Date().getFullYear()} Brussel Noord Basket
-        </span>
+        <div className="footer-bottom-main">
+  <span>
+    © {new Date().getFullYear()} Brussel Noord Basket vzw
+  </span>
+
+  <span>
+    Ondernemingsnummer 1039.061.822
+  </span>
+
+  <span>
+    Antwerpselaan 40, 1000 Brussel
+  </span>
+</div>
+
+        <NavLink className="footer-privacy-link" to="/privacy">
+          Privacyverklaring
+        </NavLink>
       </div>
     </footer>
   );

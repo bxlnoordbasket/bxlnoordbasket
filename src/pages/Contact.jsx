@@ -1,22 +1,22 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
+  AlertCircle,
+  CheckCircle2,
   Mail,
   Send,
-  CheckCircle,
-  AlertCircle,
 } from 'lucide-react';
 
 const FORMSPREE_ENDPOINT =
   import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
-function InstagramIcon({ size = 20 }) {
+function InstagramIcon({ size = 18 }) {
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
       <rect
@@ -28,7 +28,6 @@ function InstagramIcon({ size = 20 }) {
         stroke="currentColor"
         strokeWidth="2"
       />
-
       <circle
         cx="12"
         cy="12"
@@ -36,44 +35,45 @@ function InstagramIcon({ size = 20 }) {
         stroke="currentColor"
         strokeWidth="2"
       />
-
-      <circle
-        cx="17.5"
-        cy="6.5"
-        r="1.25"
-        fill="currentColor"
-      />
+      <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" />
     </svg>
   );
 }
 
-function FacebookIcon({ size = 20 }) {
+function FacebookIcon({ size = 18 }) {
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <path d="M13.5 22v-9h3l.5-3h-3.5V8.2c0-.9.3-1.7 1.8-1.7H17V3.8c-.4-.1-1.5-.2-2.7-.2-2.7 0-4.6 1.7-4.6 4.8V10H7v3h2.7v9h3.8Z" />
+      <path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5H17V3.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10H8v3h2.8v8h2.9Z" />
     </svg>
   );
 }
 
 export default function Contact() {
   const [status, setStatus] = useState('idle');
-  const [errorType, setErrorType] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    setStatus('loading');
-    setErrorType(null);
+    if (!FORMSPREE_ENDPOINT) {
+      setStatus('error');
+      setErrorMessage(
+        'Het contactformulier is momenteel niet beschikbaar. Stuur ons rechtstreeks een e-mail via bxlnoordbasket@gmail.com.'
+      );
+      return;
+    }
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+
+    setStatus('loading');
+    setErrorMessage('');
 
     try {
       const response = await fetch(FORMSPREE_ENDPOINT, {
@@ -84,33 +84,34 @@ export default function Contact() {
         },
       });
 
-      // Bericht succesvol verzonden
       if (response.ok) {
-        setStatus('success');
         form.reset();
+        setStatus('success');
         return;
       }
 
-      // Formspree limiet bereikt
       if (response.status === 429) {
         setStatus('error');
-        setErrorType('limit');
+        setErrorMessage(
+          'Dit formulier werkt momenteel niet. Je bent altijd welkom om ons een e-mail te sturen via bxlnoordbasket@gmail.com.'
+        );
         return;
       }
 
-      // Andere fout van Formspree
       setStatus('error');
-      setErrorType('general');
-    } catch (error) {
-      // Geen verbinding / netwerkprobleem
+      setErrorMessage(
+        'Het bericht kon niet worden verzonden. Probeer het later opnieuw of stuur ons rechtstreeks een e-mail via bxlnoordbasket@gmail.com.'
+      );
+    } catch {
       setStatus('error');
-      setErrorType('network');
+      setErrorMessage(
+        'Het bericht kon niet worden verzonden. Controleer je internetverbinding of stuur ons rechtstreeks een e-mail via bxlnoordbasket@gmail.com.'
+      );
     }
   }
 
   return (
     <>
-      {/* HERO */}
       <section className="subpage-hero contact-hero">
         <div className="page-width subpage-hero-content">
           <span className="eyebrow">
@@ -118,46 +119,43 @@ export default function Contact() {
           </span>
 
           <h1>
-            WE HELPEN JE
+            NEEM CONTACT
             <br />
-            <span>GRAAG VERDER</span>
+            <span>MET ONS OP.</span>
           </h1>
 
           <p>
-            Vragen over trainingen, lidmaatschap,
-            wedstrijden of de club? Neem gerust
-            contact met ons op.
+            Een vraag over trainingen, wedstrijden, lidmaatschap
+            of onze club? Stuur ons gerust een bericht.
           </p>
         </div>
       </section>
 
-      {/* CONTACT */}
       <section className="section-light">
         <div className="page-width contact-layout">
-
-          {/* CONTACT INFO */}
-          <div className="contact-info-panel">
+          <aside className="contact-info-panel">
             <span className="eyebrow">
-              CONTACT
+              CONTACTGEGEVENS
             </span>
 
             <h2>
-              Neem contact op.
+              WE HOREN GRAAG VAN JE.
             </h2>
 
             <p>
-              Heb je een vraag over onze werking,
-              trainingen, wedstrijden of lidmaatschap?
-              We helpen je graag verder.
+              Heb je een vraag over Brussel Noord Basket?
+              Neem contact met ons op via e-mail of sociale media.
             </p>
 
             <div className="contact-detail-list">
               <a href="mailto:bxlnoordbasket@gmail.com">
-                <Mail />
+                <Mail size={20} />
 
                 <span>
-                  <strong>E-mail</strong>
-                  bxlnoordbasket@gmail.com
+                  <small>E-mail</small>
+                  <strong>
+                    bxlnoordbasket@gmail.com
+                  </strong>
                 </span>
               </a>
             </div>
@@ -181,9 +179,8 @@ export default function Contact() {
                 Facebook
               </a>
             </div>
-          </div>
+          </aside>
 
-          {/* FORMULIER */}
           <form
             className="contact-form"
             onSubmit={handleSubmit}
@@ -194,18 +191,17 @@ export default function Contact() {
               </span>
 
               <h2>
-                Contactformulier
+                NEEM CONTACT OP.
               </h2>
             </div>
 
             <div className="form-grid">
               <label>
                 Naam
-
                 <input
-                  name="name"
                   type="text"
-                  placeholder="Jouw naam"
+                  name="name"
+                  autoComplete="name"
                   required
                   disabled={status === 'loading'}
                 />
@@ -213,11 +209,10 @@ export default function Contact() {
 
               <label>
                 E-mail
-
                 <input
-                  name="email"
                   type="email"
-                  placeholder="jij@email.be"
+                  name="email"
+                  autoComplete="email"
                   required
                   disabled={status === 'loading'}
                 />
@@ -226,11 +221,9 @@ export default function Contact() {
 
             <label>
               Onderwerp
-
               <input
-                name="subject"
                 type="text"
-                placeholder="Waarover heb je een vraag?"
+                name="subject"
                 required
                 disabled={status === 'loading'}
               />
@@ -238,11 +231,9 @@ export default function Contact() {
 
             <label>
               Bericht
-
               <textarea
                 name="message"
                 rows="7"
-                placeholder="Schrijf hier je bericht..."
                 required
                 disabled={status === 'loading'}
               />
@@ -253,26 +244,28 @@ export default function Contact() {
               type="submit"
               disabled={status === 'loading'}
             >
-              {status === 'loading' ? (
-                'Verzenden...'
-              ) : (
-                <>
-                  Verzenden
-                  <Send size={18} />
-                </>
-              )}
+              {status === 'loading'
+                ? 'Verzenden...'
+                : 'Verstuur bericht'}
+
+              <Send size={18} />
             </button>
 
-            {/* SUCCES */}
+            <p className="form-privacy-note">
+              We gebruiken je gegevens alleen om je bericht
+              te behandelen en eventuele opvolging te doen.
+              Lees onze{' '}
+              <Link to="/privacy">
+                privacyverklaring
+              </Link>.
+            </p>
+
             {status === 'success' && (
               <div className="form-message form-message-success">
-                <CheckCircle size={22} />
+                <CheckCircle2 size={20} />
 
                 <div>
-                  <strong>
-                    Bericht verzonden!
-                  </strong>
-
+                  <strong>Bericht verzonden.</strong>
                   <p>
                     Bedankt voor je bericht. We nemen zo snel
                     mogelijk contact met je op.
@@ -281,49 +274,21 @@ export default function Contact() {
               </div>
             )}
 
-            {/* LIMIET BEREIKT */}
-            {status === 'error' &&
-              errorType === 'limit' && (
-                <div className="form-message form-message-error">
-                  <AlertCircle size={22} />
+            {status === 'error' && (
+              <div className="form-message form-message-error">
+                <AlertCircle size={20} />
 
-                  <div>
-                    <strong>
-                      Dit formulier werkt momenteel niet.
-                    </strong>
+                <div>
+                  <strong>
+                    Verzenden mislukt.
+                  </strong>
 
-                    <p>
-                      Je bent altijd welkom om ons een e-mail
-                      te sturen via{' '}
-                      <a href="mailto:bxlnoordbasket@gmail.com">
-                        bxlnoordbasket@gmail.com
-                      </a>.
-                    </p>
-                  </div>
+                  <p>
+                    {errorMessage}
+                  </p>
                 </div>
-              )}
-
-            {/* ANDERE FOUT */}
-            {status === 'error' &&
-              errorType !== 'limit' && (
-                <div className="form-message form-message-error">
-                  <AlertCircle size={22} />
-
-                  <div>
-                    <strong>
-                      Het bericht kon niet worden verzonden.
-                    </strong>
-
-                    <p>
-                      Probeer het later opnieuw of stuur ons
-                      rechtstreeks een e-mail via{' '}
-                      <a href="mailto:bxlnoordbasket@gmail.com">
-                        bxlnoordbasket@gmail.com
-                      </a>.
-                    </p>
-                  </div>
-                </div>
-              )}
+              </div>
+            )}
           </form>
         </div>
       </section>
