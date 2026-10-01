@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Seo from './components/Seo';
 
 import Home from './pages/Home';
 import Practical from './pages/Practical';
@@ -16,6 +17,8 @@ import './site-extras.css';
 export default function App() {
   return (
     <div className="app-shell">
+      <Seo />
+
       <Header />
 
       <main>
@@ -26,7 +29,6 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/steun-stad-brussel" element={<BrusselsSupport />} />
           <Route path="/privacy" element={<Privacy />} />
-
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
