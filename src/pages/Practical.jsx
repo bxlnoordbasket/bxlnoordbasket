@@ -8,41 +8,74 @@ import SectionHeader from '../components/SectionHeader';
 
 const matches = [
   {
+    day: 'ZO',
+    date: '11 OKT',
+    homeTeam: 'Red Dragons Huldenberg',
+    homeCategory: 'J18 A',
+    awayTeam: 'Brussel Noord Basket',
+    awayCategory: 'J18 A',
+    time: '16:00',
+    location: 'Sporthal De Kronkel',
+    bnbSide: 'away',
+  },
+  {
     day: 'ZA',
-    date: '16 NOV',
+    date: '17 OKT',
     homeTeam: 'Brussel Noord Basket',
-    homeCategory: 'U18',
-    opponentTeam: 'Molenbeek Rebels',
-    opponentCategory: 'U18',
-    time: '14:30',
-    location: 'Sporthal Neder-Over-Heembeek',
+    homeCategory: 'J18 A',
+    awayTeam: 'Dynamo Bertem',
+    awayCategory: 'J18 B',
+    time: '15:30',
+    location: 'Sporthal Emanuel Hiel',
+    bnbSide: 'home',
   },
   {
     day: 'ZO',
-    date: '24 NOV',
+    date: '25 OKT',
     homeTeam: 'Brussel Noord Basket',
-    homeCategory: 'U18',
-    opponentTeam: 'Ganshoren',
-    opponentCategory: 'U18',
-    time: '16:00',
-    location: 'Brussel',
-  },
-  {
-    day: 'ZA',
-    date: '30 NOV',
-    homeTeam: 'Brussel Noord Basket',
-    homeCategory: 'U18',
-    opponentTeam: 'Royal IV',
-    opponentCategory: 'U18',
-    time: '18:00',
-    location: 'Brussel',
+    homeCategory: 'J18 A',
+    awayTeam: 'KYD Kortenberg Young Devils',
+    awayCategory: 'J18 A',
+    time: '12:30',
+    location: 'Sportcentrum Noordpool',
+    bnbSide: 'home',
   },
 ];
 
-export default function Praktisch() {
+function Team({
+  name,
+  category,
+  isBnb,
+}) {
+  return (
+    <div className="match-team">
+      {isBnb ? (
+        <img
+          src="/assets/bnb-logo-green.png"
+          alt="Brussel Noord Basket"
+        />
+      ) : (
+        <div className="opponent-placeholder">
+          VS
+        </div>
+      )}
+
+      <div className="team-label">
+        <div className="team-name">
+          {name}
+        </div>
+
+        <div className="team-category">
+          {category}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function Practical() {
   return (
     <>
-      {/* HERO */}
       <section className="subpage-hero practical-hero">
         <div className="page-width subpage-hero-content">
           <span className="eyebrow">
@@ -82,47 +115,21 @@ export default function Praktisch() {
                 </div>
 
                 <div className="match-teams">
+                  <Team
+                    name={match.homeTeam}
+                    category={match.homeCategory}
+                    isBnb={match.bnbSide === 'home'}
+                  />
 
-                  {/* BNB */}
-                  <div className="match-team">
-                    <img
-                      src="/assets/bnb-logo-green.png"
-                      alt="Brussel Noord Basket"
-                    />
-
-                    <div className="team-label">
-                      <div className="team-name">
-                        {match.homeTeam}
-                      </div>
-
-                      <div className="team-category">
-                        {match.homeCategory}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* VS */}
                   <div className="vs">
                     VS
                   </div>
 
-                  {/* TEGENSTANDER */}
-                  <div className="match-team">
-                    <div className="opponent-placeholder">
-                      VS
-                    </div>
-
-                    <div className="team-label">
-                      <div className="team-name">
-                        {match.opponentTeam}
-                      </div>
-
-                      <div className="team-category">
-                        {match.opponentCategory}
-                      </div>
-                    </div>
-                  </div>
-
+                  <Team
+                    name={match.awayTeam}
+                    category={match.awayCategory}
+                    isBnb={match.bnbSide === 'away'}
+                  />
                 </div>
 
                 <div className="match-meta">
@@ -152,7 +159,6 @@ export default function Praktisch() {
 
           <div className="training-panel">
             <div className="training-table">
-
               <div className="training-row training-head">
                 <span>Dag</span>
                 <span>Locatie</span>
@@ -186,7 +192,6 @@ export default function Praktisch() {
                   17:00 – 19:00
                 </span>
               </div>
-
             </div>
           </div>
         </div>

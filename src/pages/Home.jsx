@@ -7,8 +7,103 @@ import {
 } from 'lucide-react';
 
 import SectionHeader from '../components/SectionHeader';
+import '../partner-carousel.css';
 
-const partnerLogos = [1, 2, 3, 4, 5];
+const partners = [
+  {
+    src: '/assets/partners/capital.svg',
+    alt: 'Capital',
+    href: 'https://nl.capitalbelgium.be/',
+    external: true,
+  },
+  {
+    src: '/assets/partners/nolan-design.svg',
+    alt: 'Nolan Design',
+    href: 'https://nolandesign.be/',
+    external: true,
+  },
+  {
+    src: '/assets/partners/bxl-ville-de-stad.svg',
+    alt: 'Brussel - La Ville / De Stad',
+    href: '/steun-stad-brussel',
+    external: false,
+  },
+  {
+    src: '/assets/partners/capital.svg',
+    alt: 'Capital',
+    href: 'https://nl.capitalbelgium.be/',
+    external: true,
+  },
+  {
+    src: '/assets/partners/n-brussel.svg',
+    alt: 'N-Brussel',
+    href: 'https://www.sportinbrussel.be/vgc-sportdienst',
+    external: true,
+  },
+];
+
+const partnerGroup = [
+  ...partners,
+  ...partners,
+];
+
+function PartnerLogo({ logo, clone = false, index }) {
+  const content = (
+    <div className="logo-slot">
+      <img
+        className="partner-logo"
+        src={logo.src}
+        alt={clone ? '' : logo.alt}
+      />
+    </div>
+  );
+
+  if (logo.external) {
+    return (
+      <a
+        className="partner-link"
+        href={logo.href}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={clone ? undefined : `Bezoek ${logo.alt}`}
+        tabIndex={clone ? -1 : 0}
+        key={`${clone ? 'clone' : 'main'}-${logo.src}-${index}`}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      className="partner-link"
+      to={logo.href}
+      aria-label={clone ? undefined : `Meer informatie over ${logo.alt}`}
+      tabIndex={clone ? -1 : 0}
+      key={`${clone ? 'clone' : 'main'}-${logo.src}-${index}`}
+    >
+      {content}
+    </Link>
+  );
+}
+
+function PartnerGroup({ clone = false }) {
+  return (
+    <div
+      className="partner-carousel-group"
+      aria-hidden={clone ? 'true' : undefined}
+    >
+      {partnerGroup.map((logo, index) => (
+        <PartnerLogo
+          key={`${clone ? 'clone' : 'main'}-${logo.src}-${index}`}
+          logo={logo}
+          clone={clone}
+          index={index}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -67,19 +162,8 @@ export default function Home() {
           aria-label="Partnerlogo's"
         >
           <div className="logo-track">
-            {[...partnerLogos, ...partnerLogos].map(
-              (logo, index) => (
-                <div
-                  className="logo-slot"
-                  key={`${logo}-${index}`}
-                >
-                  <img
-                    src={`/assets/partners/partner-${logo}.svg`}
-                    alt={`Partner ${logo}`}
-                  />
-                </div>
-              )
-            )}
+            <PartnerGroup />
+            <PartnerGroup clone />
           </div>
         </div>
       </section>
@@ -94,9 +178,29 @@ export default function Home() {
 
           <div className="featured-match">
             <div className="featured-date">
-              <span>ZA</span>
-              <strong>16</strong>
-              <span>NOV</span>
+              <span>ZO</span>
+              <strong>11</strong>
+              <span>OKT</span>
+            </div>
+
+            <div className="featured-team">
+              <div className="opponent-placeholder large">
+                RD
+              </div>
+
+              <div>
+                <strong>
+                  Red Dragons Huldenberg
+                </strong>
+
+                <span>
+                  J18 A
+                </span>
+              </div>
+            </div>
+
+            <div className="featured-vs">
+              VS
             </div>
 
             <div className="featured-team bnb-team">
@@ -106,40 +210,30 @@ export default function Home() {
               />
 
               <div>
-                <strong>Brussel Noord Basket</strong>
-                <span>U18</span>
-              </div>
-            </div>
+                <strong>
+                  Brussel Noord Basket
+                </strong>
 
-            <div className="featured-vs">
-              VS
-            </div>
-
-            <div className="featured-team">
-              <div className="opponent-placeholder large">
-                MR
-              </div>
-
-              <div>
-                <strong>Molenbeek Rebels</strong>
-                <span>U18</span>
+                <span>
+                  J18 A
+                </span>
               </div>
             </div>
 
             <div className="featured-info">
               <span>
                 <Clock3 size={18} />
-                14:30
+                16:00
               </span>
 
               <span>
                 <MapPin size={18} />
-                Sporthal Neder-Over-Heembeek
+                Sporthal De Kronkel
               </span>
 
               <span>
                 <CalendarDays size={18} />
-                Gewestelijke competitie
+                U18 Niveau 4
               </span>
             </div>
           </div>

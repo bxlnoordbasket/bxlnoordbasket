@@ -1,19 +1,49 @@
-import { Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
+import { Route, Routes } from 'react-router-dom';
+
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 import Home from './pages/Home';
 import Practical from './pages/Practical';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import BrusselsSupport from './pages/BrusselsSupport';
 
 export default function App() {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/praktisch" element={<Practical />} />
-        <Route path="/over-bnb" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Route>
-    </Routes>
+    <div className="app-shell">
+      <Header />
+
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+
+          <Route
+            path="/praktisch"
+            element={<Practical />}
+          />
+
+          <Route
+            path="/over-bnb"
+            element={<About />}
+          />
+
+          <Route
+            path="/contact"
+            element={<Contact />}
+          />
+
+          <Route
+            path="/steun-stad-brussel"
+            element={<BrusselsSupport />}
+          />
+        </Routes>
+      </main>
+
+      <Footer />
+    </div>
   );
 }
