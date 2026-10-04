@@ -40,6 +40,12 @@ const partners = [
     href: 'https://www.sportinbrussel.be/vgc-sportdienst',
     external: true,
   },
+  {
+    src: '/assets/partners/basketbal-vlaanderen.svg',
+    alt: 'Basketbal Vlaanderen',
+    href: 'https://www.basketbal.vlaanderen/',
+    external: true,
+  },
 ];
 
 const partnerGroup = [
