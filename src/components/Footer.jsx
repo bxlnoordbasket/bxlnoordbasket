@@ -1,37 +1,54 @@
-import { Mail } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import {
+  Mail,
+} from 'lucide-react';
 
-function InstagramIcon({ size = 16 }) {
+import {
+  NavLink,
+} from 'react-router-dom';
+
+import {
+  useTranslation,
+} from 'react-i18next';
+
+function InstagramIcon({
+  size = 16,
+}) {
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 24 24"
       fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       aria-hidden="true"
     >
       <rect
-        x="3"
-        y="3"
         width="18"
         height="18"
+        x="3"
+        y="3"
         rx="5"
-        stroke="currentColor"
-        strokeWidth="2"
+        ry="5"
       />
-      <circle
-        cx="12"
-        cy="12"
-        r="4"
-        stroke="currentColor"
-        strokeWidth="2"
+
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+
+      <line
+        x1="17.5"
+        x2="17.51"
+        y1="6.5"
+        y2="6.5"
       />
-      <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" />
     </svg>
   );
 }
 
-function FacebookIcon({ size = 16 }) {
+function FacebookIcon({
+  size = 16,
+}) {
   return (
     <svg
       width={size}
@@ -40,12 +57,16 @@ function FacebookIcon({ size = 16 }) {
       fill="currentColor"
       aria-hidden="true"
     >
-      <path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5H17V3.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10H8v3h2.8v8h2.9Z" />
+      <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.414c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.971h-1.513c-1.49 0-1.956.931-1.956 1.887v2.262h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
     </svg>
   );
 }
 
 export default function Footer() {
+  const {
+    t,
+  } = useTranslation();
+
   return (
     <footer className="site-footer">
       <div className="page-width footer-top">
@@ -66,40 +87,64 @@ export default function Footer() {
           </div>
 
           <p>
-            Meer dan basketbal. Een club waar spelers, coaches,
-            ouders en supporters samen groeien.
+            {t(
+              'footer.description'
+            )}
           </p>
         </div>
 
         <div className="footer-links">
-          <h3>Pagina&apos;s</h3>
+          <h3>
+            {t(
+              'footer.pages'
+            )}
+          </h3>
 
           <NavLink to="/">
-            Home
+            {t(
+              'nav.home'
+            )}
           </NavLink>
 
           <NavLink to="/praktisch">
-            Praktisch
+            {t(
+              'nav.practical'
+            )}
           </NavLink>
 
           <NavLink to="/over-bnb">
-            Over BNB
+            {t(
+              'nav.about'
+            )}
           </NavLink>
 
+        
+
           <NavLink to="/contact">
-            Contact
+            {t(
+              'nav.contact'
+            )}
           </NavLink>
 
           <NavLink to="/privacy">
-            Privacy
+            {t(
+              'footer.privacy'
+            )}
           </NavLink>
         </div>
 
         <div className="footer-links">
-          <h3>Contact</h3>
+          <h3>
+            {t(
+              'footer.contact'
+            )}
+          </h3>
 
           <a href="mailto:bxlnoordbasket@gmail.com">
-            <Mail size={16} />
+            <Mail
+              size={16}
+            />
+
             bxlnoordbasket@gmail.com
           </a>
 
@@ -108,22 +153,32 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            <InstagramIcon size={16} />
+            <InstagramIcon
+              size={16}
+            />
+
             Instagram
           </a>
 
           <a
-            href="https://www.facebook.com/profile.php?id=61590572720599&sk=followers"
+            href="https://www.facebook.com/profile.php?id=61590572720599"
             target="_blank"
             rel="noreferrer"
           >
-            <FacebookIcon size={16} />
+            <FacebookIcon
+              size={16}
+            />
+
             Facebook
           </a>
         </div>
 
         <div className="footer-cta-card">
-          <h3>Help onze club groeien.</h3>
+          <h3>
+            {t(
+              'footer.helpTitle'
+            )}
+          </h3>
 
           <a
             className="button button-green"
@@ -131,29 +186,43 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            Steun ons
-            <span>→</span>
+            {t(
+              'footer.support'
+            )}
+
+            <span>
+              →
+            </span>
           </a>
         </div>
       </div>
 
       <div className="footer-bottom page-width">
         <div className="footer-bottom-main">
-  <span>
-    © {new Date().getFullYear()} Brussel Noord Basket vzw
-  </span>
+          <span>
+            ©{' '}
+            {new Date().getFullYear()}{' '}
+            Brussel Noord Basket vzw
+          </span>
 
-  <span>
-    Ondernemingsnummer 1039.061.822
-  </span>
+          <span>
+            {t(
+              'footer.companyNumber'
+            )}
+          </span>
 
-  <span>
-    Antwerpselaan 40, 1000 Brussel
-  </span>
-</div>
+          <span>
+            Antwerpselaan 40, 1000 Brussel
+          </span>
+        </div>
 
-        <NavLink className="footer-privacy-link" to="/privacy">
-          Privacyverklaring
+        <NavLink
+          className="footer-privacy-link"
+          to="/privacy"
+        >
+          {t(
+            'footer.privacyStatement'
+          )}
         </NavLink>
       </div>
     </footer>

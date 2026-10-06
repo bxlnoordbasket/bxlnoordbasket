@@ -1,0 +1,342 @@
+/* ======================================================
+   DESKTOP HEADER LAYOUT
+====================================================== */
+
+@media (min-width: 981px) {
+  /*
+    Totale beschikbare breedte = 1180px
+
+    240px logo
+    560px navigatie
+    340px actions
+    2 x 20px gap
+
+    = exact 1180px
+  */
+
+  .header-inner {
+    display: grid;
+
+    grid-template-columns:
+      240px
+      560px
+      340px;
+
+    align-items: center;
+
+    gap: 20px;
+  }
+
+
+  /* ====================================================
+     LEFT — BRAND
+  ==================================================== */
+
+  .header-brand-zone {
+    width: 240px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+  }
+
+  .header-brand-zone .brand {
+    min-width: 0;
+  }
+
+
+  /* ====================================================
+     CENTER — NAVIGATION
+  ==================================================== */
+
+  .main-nav {
+    width: 560px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0;
+  }
+
+  /*
+    Geen 5 identieke kolommen meer.
+
+    Praktisch krijgt bewust meer ruimte omdat:
+
+    NL = PRAKTISCH
+    FR = INFOS PRATIQUES
+    EN = PRACTICAL INFO
+
+    allemaal sterk verschillen in lengte.
+  */
+
+  .nav-grid {
+    width: 560px;
+
+    display: grid;
+
+    grid-template-columns:
+      90px
+      150px
+      120px
+      90px
+      110px;
+
+    align-items: center;
+  }
+
+  /*
+    Het gridvak heeft een vaste breedte,
+    maar de link zelf blijft rond de tekst.
+
+    Daardoor verandert de positie nooit
+    en blijft de groene underline mooi
+    onder alleen de tekst staan.
+  */
+
+  .nav-grid .nav-link {
+    width: max-content;
+
+    justify-self: center;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  /* ====================================================
+     RIGHT — LANGUAGE + SUPPORT
+  ==================================================== */
+
+  .header-actions-zone {
+    width: 340px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 14px;
+  }
+
+  .header-cta {
+    width: 180px;
+
+    min-width: 180px;
+
+    flex-shrink: 0;
+
+    justify-content: space-between;
+  }
+
+  .header-cta-label {
+    flex: 1;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+  .header-cta-arrow {
+    flex-shrink: 0;
+  }
+}
+
+
+/* ======================================================
+   LANGUAGE SWITCHER
+====================================================== */
+
+.language-switcher {
+  display: inline-grid;
+
+  grid-template-columns:
+    repeat(3, 42px);
+
+  align-items: center;
+
+  gap: 3px;
+
+  padding: 3px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.14);
+
+  border-radius: 8px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  flex-shrink: 0;
+}
+
+.language-button {
+  width: 42px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #aaa;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.language-button:hover {
+  color: #fff;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.language-button.active {
+  background: var(--green);
+
+  color: #070707;
+}
+
+.language-button:focus-visible {
+  outline:
+    2px solid
+    var(--green);
+
+  outline-offset: 2px;
+}
+
+
+/* ======================================================
+   DESKTOP / MOBILE VISIBILITY
+====================================================== */
+
+.language-switcher-desktop {
+  flex-shrink: 0;
+}
+
+.language-switcher-mobile {
+  display: none;
+}
+
+
+/* ======================================================
+   TABLET / MOBILE
+====================================================== */
+
+@media (max-width: 980px) {
+  .header-inner {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+  }
+
+  .header-brand-zone {
+    display: flex;
+
+    align-items: center;
+  }
+
+  .header-actions-zone {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+  }
+
+  .nav-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    width: 100%;
+  }
+
+  .nav-grid .nav-link {
+    width: 100%;
+  }
+
+  .language-switcher-desktop {
+    display: none;
+  }
+
+  .language-switcher-mobile {
+    display: grid;
+
+    width: max-content;
+
+    margin-top: 18px;
+  }
+
+  .language-switcher-mobile
+  .language-button {
+    width: 44px;
+
+    height: 38px;
+  }
+}
+
+
+/* ======================================================
+   SMALL MOBILE
+====================================================== */
+
+@media (max-width: 420px) {
+  .language-switcher-mobile {
+    margin-top: 14px;
+  }
+
+  .language-switcher-mobile
+  .language-button {
+    width: 42px;
+
+    height: 36px;
+
+    font-size: 10px;
+  }
+}

@@ -1,7 +1,21 @@
-import { ArrowLeft, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import {
+  ArrowLeft,
+  Mail,
+} from 'lucide-react';
+
+import {
+  Link,
+} from 'react-router-dom';
+
+import {
+  useTranslation,
+} from 'react-i18next';
 
 export default function NotFound() {
+  const {
+    t,
+  } = useTranslation();
+
   return (
     <section className="not-found-page">
       <div className="page-width not-found-content">
@@ -10,18 +24,29 @@ export default function NotFound() {
         </span>
 
         <span className="eyebrow">
-          PAGINA NIET GEVONDEN
+          {t(
+            'notFound.eyebrow'
+          )}
         </span>
 
         <h1>
-          HIER IS GEEN
+          {t(
+            'notFound.titleLine1'
+          )}
+
           <br />
-          <span>WEDSTRIJD.</span>
+
+          <span>
+            {t(
+              'notFound.titleLine2'
+            )}
+          </span>
         </h1>
 
         <p>
-          De pagina die je zoekt bestaat niet, is verplaatst
-          of de link is niet meer geldig.
+          {t(
+            'notFound.description'
+          )}
         </p>
 
         <div className="not-found-actions">
@@ -29,16 +54,26 @@ export default function NotFound() {
             className="button button-green"
             to="/"
           >
-            <ArrowLeft size={18} />
-            Terug naar home
+            <ArrowLeft
+              size={18}
+            />
+
+            {t(
+              'notFound.back'
+            )}
           </Link>
 
           <Link
             className="button button-outline"
             to="/contact"
           >
-            <Mail size={18} />
-            Contact
+            <Mail
+              size={18}
+            />
+
+            {t(
+              'notFound.contact'
+            )}
           </Link>
         </div>
       </div>

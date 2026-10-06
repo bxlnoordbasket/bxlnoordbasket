@@ -1,171 +1,291 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import {
+  useEffect,
+} from 'react';
 
-const SITE_URL = 'https://brusselnoordbasket.be';
+import {
+  useLocation,
+} from 'react-router-dom';
+
+import {
+  useTranslation,
+} from 'react-i18next';
+
+const SITE_URL =
+  'https://brusselnoordbasket.be';
 
 const seoPages = {
   '/': {
-    title: 'Brussel Noord Basket | Basketbal in Brussel',
-    description:
-      'Brussel Noord Basket is een Brusselse basketbalclub voor en door jongeren. Bekijk wedstrijden, trainingsuren, praktische info en het verhaal van BNB.',
+    titleKey:
+      'seo.homeTitle',
+
+    descriptionKey:
+      'seo.homeDescription',
   },
 
   '/praktisch': {
-    title: 'Praktische info | Brussel Noord Basket',
-    description:
-      'Bekijk de komende wedstrijden, trainingsuren en trainingslocaties van Brussel Noord Basket.',
+    titleKey:
+      'seo.practicalTitle',
+
+    descriptionKey:
+      'seo.practicalDescription',
   },
 
   '/over-bnb': {
-    title: 'Over BNB | Brussel Noord Basket',
-    description:
-      'Ontdek het verhaal van Brussel Noord Basket, een Brusselse basketbalclub ontstaan voor en door jongeren.',
+    titleKey:
+      'seo.aboutTitle',
+
+    descriptionKey:
+      'seo.aboutDescription',
   },
 
   '/contact': {
-    title: 'Contact | Brussel Noord Basket',
-    description:
-      'Neem contact op met Brussel Noord Basket voor vragen over trainingen, wedstrijden, lidmaatschap of de club.',
+    titleKey:
+      'seo.contactTitle',
+
+    descriptionKey:
+      'seo.contactDescription',
   },
 
   '/privacy': {
-    title: 'Privacyverklaring | Brussel Noord Basket',
-    description:
-      'Lees hoe Brussel Noord Basket vzw persoonsgegevens verwerkt en beschermt.',
+    titleKey:
+      'seo.privacyTitle',
+
+    descriptionKey:
+      'seo.privacyDescription',
   },
 
   '/steun-stad-brussel': {
-    title: 'Met de steun van Stad Brussel | Brussel Noord Basket',
-    description:
-      'Brussel Noord Basket met de steun van Faouzia Hariche, schepen van Jeugd van de Stad Brussel.',
+    titleKey:
+      'seo.supportTitle',
+
+    descriptionKey:
+      'seo.supportDescription',
   },
 };
 
-function setMeta(property, content, attribute = 'name') {
-  let element = document.head.querySelector(
-    `meta[${attribute}="${property}"]`
-  );
+function setMeta(
+  property,
+  content,
+  attribute = 'name'
+) {
+  let element =
+    document.head.querySelector(
+      `meta[${attribute}="${property}"]`
+    );
 
-  if (!element) {
-    element = document.createElement('meta');
-    element.setAttribute(attribute, property);
-    document.head.appendChild(element);
+  if (
+    !element
+  ) {
+    element =
+      document.createElement(
+        'meta'
+      );
+
+    element.setAttribute(
+      attribute,
+      property
+    );
+
+    document.head.appendChild(
+      element
+    );
   }
 
-  element.setAttribute('content', content);
+  element.setAttribute(
+    'content',
+    content
+  );
 }
 
 export default function Seo() {
-  const location = useLocation();
+  const location =
+    useLocation();
 
-  useEffect(() => {
-    const normalizedPath =
-      location.pathname === '/'
-        ? '/'
-        : location.pathname.replace(/\/+$/, '');
+  const {
+    t,
+    i18n,
+  } = useTranslation();
 
-    const page = seoPages[normalizedPath];
+  useEffect(
+    () => {
+      const normalizedPath =
+        location.pathname ===
+        '/'
+          ? '/'
+          : location.pathname.replace(
+              /\/+$/,
+              ''
+            );
 
-    const isKnownPage = Boolean(page);
+      const page =
+        seoPages[
+          normalizedPath
+        ];
 
-    const title =
-      page?.title ||
-      'Pagina niet gevonden | Brussel Noord Basket';
+      const isKnownPage =
+        Boolean(
+          page
+        );
 
-    const description =
-      page?.description ||
-      'De gevraagde pagina kon niet worden gevonden.';
+      const title =
+        page
+          ? t(
+              page.titleKey
+            )
+          : t(
+              'seo.notFoundTitle'
+            );
 
-    const canonicalPath =
-      normalizedPath === '/'
-        ? '/'
-        : `${normalizedPath}/`;
+      const description =
+        page
+          ? t(
+              page.descriptionKey
+            )
+          : t(
+              'seo.notFoundDescription'
+            );
 
-    const canonicalUrl =
-      `${SITE_URL}${canonicalPath}`;
+      const canonicalPath =
+        normalizedPath ===
+        '/'
+          ? '/'
+          : `${normalizedPath}/`;
 
-    document.title = title;
+      const canonicalUrl =
+        `${SITE_URL}${canonicalPath}`;
 
-    setMeta('description', description);
+      const language =
+        (
+          i18n.resolvedLanguage ||
+          i18n.language ||
+          'nl'
+        )
+          .split(
+            '-'
+          )[0]
+          .toLowerCase();
 
-    setMeta(
-      'og:title',
-      title,
-      'property'
-    );
+      const localeMap = {
+        nl:
+          'nl_BE',
 
-    setMeta(
-      'og:description',
-      description,
-      'property'
-    );
+        fr:
+          'fr_BE',
 
-    setMeta(
-      'og:url',
-      canonicalUrl,
-      'property'
-    );
+        en:
+          'en_GB',
+      };
 
-    setMeta(
-      'twitter:title',
-      title
-    );
+      document.title =
+        title;
 
-    setMeta(
-      'twitter:description',
-      description
-    );
-
-    let canonical =
-      document.head.querySelector(
-        'link[rel="canonical"]'
+      setMeta(
+        'description',
+        description
       );
 
-    if (!canonical) {
-      canonical =
-        document.createElement('link');
+      setMeta(
+        'og:title',
+        title,
+        'property'
+      );
+
+      setMeta(
+        'og:description',
+        description,
+        'property'
+      );
+
+      setMeta(
+        'og:url',
+        canonicalUrl,
+        'property'
+      );
+
+      setMeta(
+        'og:locale',
+        localeMap[
+          language
+        ] ||
+          'nl_BE',
+        'property'
+      );
+
+      setMeta(
+        'twitter:title',
+        title
+      );
+
+      setMeta(
+        'twitter:description',
+        description
+      );
+
+      let canonical =
+        document.head.querySelector(
+          'link[rel="canonical"]'
+        );
+
+      if (
+        !canonical
+      ) {
+        canonical =
+          document.createElement(
+            'link'
+          );
+
+        canonical.setAttribute(
+          'rel',
+          'canonical'
+        );
+
+        document.head.appendChild(
+          canonical
+        );
+      }
 
       canonical.setAttribute(
-        'rel',
-        'canonical'
+        'href',
+        canonicalUrl
       );
 
-      document.head.appendChild(
-        canonical
-      );
-    }
+      let robots =
+        document.head.querySelector(
+          'meta[name="robots"]'
+        );
 
-    canonical.setAttribute(
-      'href',
-      canonicalUrl
-    );
+      if (
+        !robots
+      ) {
+        robots =
+          document.createElement(
+            'meta'
+          );
 
-    let robots =
-      document.head.querySelector(
-        'meta[name="robots"]'
-      );
+        robots.setAttribute(
+          'name',
+          'robots'
+        );
 
-    if (!robots) {
-      robots =
-        document.createElement('meta');
+        document.head.appendChild(
+          robots
+        );
+      }
 
       robots.setAttribute(
-        'name',
-        'robots'
+        'content',
+        isKnownPage
+          ? 'index, follow'
+          : 'noindex, nofollow'
       );
-
-      document.head.appendChild(
-        robots
-      );
-    }
-
-    robots.setAttribute(
-      'content',
-      isKnownPage
-        ? 'index, follow'
-        : 'noindex, nofollow'
-    );
-  }, [location.pathname]);
+    },
+    [
+      location.pathname,
+      i18n.resolvedLanguage,
+      i18n.language,
+      t,
+    ]
+  );
 
   return null;
 }

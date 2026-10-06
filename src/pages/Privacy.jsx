@@ -1,7 +1,20 @@
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import {
+  Link,
+} from 'react-router-dom';
+
+import {
+  ArrowLeft,
+} from 'lucide-react';
+
+import {
+  useTranslation,
+} from 'react-i18next';
 
 export default function Privacy() {
+  const {
+    t,
+  } = useTranslation();
+
   return (
     <section className="section-light legal-page">
       <div className="page-width legal-page-inner">
@@ -9,160 +22,233 @@ export default function Privacy() {
           to="/"
           className="legal-back-link"
         >
-          <ArrowLeft size={18} />
-          Terug naar home
+          <ArrowLeft
+            size={18}
+          />
+
+          {t(
+            'privacy.back'
+          )}
         </Link>
 
         <span className="eyebrow">
-          PRIVACY
+          {t(
+            'privacy.eyebrow'
+          )}
         </span>
 
         <h1>
-          PRIVACYVERKLARING
+          {t(
+            'privacy.title'
+          )}
         </h1>
 
         <p className="legal-intro">
-          Brussel Noord Basket vzw respecteert je privacy.
-          In deze privacyverklaring leggen we uit welke
-          persoonsgegevens we via deze website verwerken,
-          waarom we dat doen en welke rechten je hebt.
+          {t(
+            'privacy.intro'
+          )}
         </p>
 
         <div className="legal-content">
           <section>
-            <h2>1. Wie verwerkt je gegevens?</h2>
+            <h2>
+              {t(
+                'privacy.s1.title'
+              )}
+            </h2>
 
             <p>
-  De verwerkingsverantwoordelijke is
-  <strong> Brussel Noord Basket vzw</strong>.
-</p>
+              {t(
+                'privacy.s1.controller'
+              )}{' '}
 
-<p>
-  Maatschappelijke zetel: Antwerpselaan 40, 1000 Brussel
-  <br />
-  Ondernemingsnummer: <strong>1039.061.822</strong>
-  <br />
-  E-mail:{' '}
-  <a href="mailto:bxlnoordbasket@gmail.com">
-    bxlnoordbasket@gmail.com
-  </a>
-</p>
+              <strong>
+                Brussel Noord Basket vzw
+              </strong>.
+            </p>
+
+            <p>
+              {t(
+                'privacy.s1.seat'
+              )}
+
+              <br />
+
+              {t(
+                'privacy.s1.company'
+              )}{' '}
+
+              <strong>
+                1039.061.822
+              </strong>
+
+              <br />
+
+              {t(
+                'privacy.s1.email'
+              )}{' '}
+
+              <a href="mailto:bxlnoordbasket@gmail.com">
+                bxlnoordbasket@gmail.com
+              </a>
+            </p>
           </section>
 
           <section>
-            <h2>2. Welke gegevens verzamelen we?</h2>
+            <h2>
+              {t(
+                'privacy.s2.title'
+              )}
+            </h2>
 
             <p>
-              Wanneer je het contactformulier gebruikt, kunnen we
-              de volgende gegevens verwerken:
+              {t(
+                'privacy.s2.intro'
+              )}
             </p>
 
             <ul>
-              <li>je naam;</li>
-              <li>je e-mailadres;</li>
-              <li>het onderwerp van je bericht;</li>
-              <li>de inhoud van je bericht;</li>
               <li>
-                technische gegevens die nodig zijn om het formulier
-                veilig te verwerken.
+                {t(
+                  'privacy.s2.i1'
+                )}
+              </li>
+
+              <li>
+                {t(
+                  'privacy.s2.i2'
+                )}
+              </li>
+
+              <li>
+                {t(
+                  'privacy.s2.i3'
+                )}
+              </li>
+
+              <li>
+                {t(
+                  'privacy.s2.i4'
+                )}
+              </li>
+
+              <li>
+                {t(
+                  'privacy.s2.i5'
+                )}
               </li>
             </ul>
           </section>
 
           <section>
-            <h2>3. Waarom verwerken we deze gegevens?</h2>
+            <h2>
+              {t(
+                'privacy.s3.title'
+              )}
+            </h2>
 
             <p>
-              We gebruiken deze gegevens uitsluitend om je vraag
-              of bericht te behandelen, je te antwoorden en
-              eventuele verdere opvolging te doen.
+              {t(
+                'privacy.s3.p1'
+              )}
             </p>
 
             <p>
-              De verwerking gebeurt op basis van ons gerechtvaardigd
-              belang om vragen en communicatie over de club te
-              behandelen. Wanneer je bericht betrekking heeft op
-              een mogelijke inschrijving of overeenkomst, kan de
-              verwerking ook nodig zijn om stappen te nemen op jouw
-              verzoek vóór het sluiten van een overeenkomst.
-            </p>
-          </section>
-
-          <section>
-            <h2>4. Contactformulier en Formspree</h2>
-
-            <p>
-              Ons contactformulier wordt technisch verwerkt via
-              Formspree. Wanneer je het formulier verstuurt, worden
-              de gegevens die je invult aan Formspree doorgegeven
-              zodat het bericht aan ons kan worden bezorgd.
-            </p>
-
-            <p>
-              Formspree host zijn diensten via Amazon Web Services
-              in de Verenigde Staten en geeft aan voor doorgiften
-              als verwerker gebruik te maken van Standard
-              Contractual Clauses (SCC&apos;s).
+              {t(
+                'privacy.s3.p2'
+              )}
             </p>
           </section>
 
           <section>
-            <h2>5. Hoe lang bewaren we je gegevens?</h2>
+            <h2>
+              {t(
+                'privacy.s4.title'
+              )}
+            </h2>
 
             <p>
-              We bewaren contactgegevens niet langer dan nodig is
-              om je vraag te behandelen en eventuele noodzakelijke
-              opvolging te doen. Wanneer gegevens langer bewaard
-              moeten worden om te voldoen aan een wettelijke
-              verplichting of voor een lopend dossier, worden ze
-              alleen daarvoor bewaard.
+              {t(
+                'privacy.s4.p1'
+              )}
+            </p>
+
+            <p>
+              {t(
+                'privacy.s4.p2'
+              )}
             </p>
           </section>
 
           <section>
-            <h2>6. Delen we je gegevens?</h2>
+            <h2>
+              {t(
+                'privacy.s5.title'
+              )}
+            </h2>
 
             <p>
-              We verkopen je persoonsgegevens niet. Gegevens worden
-              alleen gedeeld met dienstverleners wanneer dat nodig
-              is om de website of het contactformulier te laten
-              functioneren, of wanneer we daartoe wettelijk
-              verplicht zijn.
+              {t(
+                'privacy.s5.p1'
+              )}
             </p>
           </section>
 
           <section>
-            <h2>7. Cookies en tracking</h2>
+            <h2>
+              {t(
+                'privacy.s6.title'
+              )}
+            </h2>
 
             <p>
-              Deze website gebruikt momenteel geen
-              analytics- of marketingcookies en bevat geen
-              advertentietrackers. Als dit in de toekomst verandert,
-              passen we deze privacyverklaring aan en voorzien we
-              waar nodig een toestemmingsmechanisme.
+              {t(
+                'privacy.s6.p1'
+              )}
             </p>
           </section>
 
           <section>
-            <h2>8. Je rechten</h2>
+            <h2>
+              {t(
+                'privacy.s7.title'
+              )}
+            </h2>
 
             <p>
-              Je kunt ons onder meer vragen om je persoonsgegevens
-              in te kijken, te verbeteren, te wissen of de verwerking
-              ervan te beperken. In bepaalde gevallen kun je ook
-              bezwaar maken tegen de verwerking.
+              {t(
+                'privacy.s7.p1'
+              )}
+            </p>
+          </section>
+
+          <section>
+            <h2>
+              {t(
+                'privacy.s8.title'
+              )}
+            </h2>
+
+            <p>
+              {t(
+                'privacy.s8.p1'
+              )}
             </p>
 
             <p>
-              Stuur daarvoor een e-mail naar{' '}
+              {t(
+                'privacy.s8.emailBefore'
+              )}{' '}
+
               <a href="mailto:bxlnoordbasket@gmail.com">
                 bxlnoordbasket@gmail.com
               </a>.
             </p>
 
             <p>
-              Je hebt daarnaast het recht om een klacht in te dienen
-              bij de Belgische Gegevensbeschermingsautoriteit.
+              {t(
+                'privacy.s8.p3'
+              )}
             </p>
 
             <a
@@ -170,20 +256,29 @@ export default function Privacy() {
               target="_blank"
               rel="noreferrer"
             >
-              Gegevensbeschermingsautoriteit
+              {t(
+                'privacy.s8.authority'
+              )}
             </a>
           </section>
 
           <section>
-            <h2>9. Wijzigingen</h2>
+            <h2>
+              {t(
+                'privacy.s9.title'
+              )}
+            </h2>
 
             <p>
-              We kunnen deze privacyverklaring aanpassen wanneer
-              onze website of gegevensverwerking verandert.
+              {t(
+                'privacy.s9.p1'
+              )}
             </p>
 
             <p>
-              Laatste update: 2 oktober 2026.
+              {t(
+                'privacy.s9.updated'
+              )}
             </p>
           </section>
         </div>

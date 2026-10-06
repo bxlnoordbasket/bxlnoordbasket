@@ -4,41 +4,107 @@ import {
   MapPin,
 } from 'lucide-react';
 
+import {
+  useTranslation,
+} from 'react-i18next';
+
 import SectionHeader from '../components/SectionHeader';
 
 const matches = [
   {
-    day: 'ZO',
-    date: '11 OKT',
-    homeTeam: 'Red Dragons Huldenberg',
-    homeCategory: 'J18 A',
-    awayTeam: 'Brussel Noord Basket',
-    awayCategory: 'J18 A',
-    time: '16:00',
-    location: 'Sporthal De Kronkel',
-    bnbSide: 'away',
+    dayKey:
+      'practical.matches.sun',
+
+    number:
+      '11',
+
+    monthKey:
+      'practical.matches.oct',
+
+    homeTeam:
+      'Red Dragons Huldenberg',
+
+    homeCategory:
+      'J18 A',
+
+    awayTeam:
+      'Brussel Noord Basket',
+
+    awayCategory:
+      'J18 A',
+
+    time:
+      '16:00',
+
+    location:
+      'Sporthal De Kronkel',
+
+    bnbSide:
+      'away',
   },
+
   {
-    day: 'ZA',
-    date: '17 OKT',
-    homeTeam: 'Brussel Noord Basket',
-    homeCategory: 'J18 A',
-    awayTeam: 'Dynamo Bertem',
-    awayCategory: 'J18 B',
-    time: '15:30',
-    location: 'Sporthal Emanuel Hiel',
-    bnbSide: 'home',
+    dayKey:
+      'practical.matches.sat',
+
+    number:
+      '17',
+
+    monthKey:
+      'practical.matches.oct',
+
+    homeTeam:
+      'Brussel Noord Basket',
+
+    homeCategory:
+      'J18 A',
+
+    awayTeam:
+      'Dynamo Bertem',
+
+    awayCategory:
+      'J18 B',
+
+    time:
+      '15:30',
+
+    location:
+      'Sporthal Emanuel Hiel',
+
+    bnbSide:
+      'home',
   },
+
   {
-    day: 'ZO',
-    date: '25 OKT',
-    homeTeam: 'Brussel Noord Basket',
-    homeCategory: 'J18 A',
-    awayTeam: 'KYD Kortenberg Young Devils',
-    awayCategory: 'J18 A',
-    time: '12:30',
-    location: 'Sportcentrum Noordpool',
-    bnbSide: 'home',
+    dayKey:
+      'practical.matches.sun',
+
+    number:
+      '25',
+
+    monthKey:
+      'practical.matches.oct',
+
+    homeTeam:
+      'Brussel Noord Basket',
+
+    homeCategory:
+      'J18 A',
+
+    awayTeam:
+      'KYD Kortenberg Young Devils',
+
+    awayCategory:
+      'J18 A',
+
+    time:
+      '12:30',
+
+    location:
+      'Sportcentrum Noordpool',
+
+    bnbSide:
+      'home',
   },
 ];
 
@@ -74,99 +140,178 @@ function Team({
 }
 
 export default function Practical() {
+  const {
+    t,
+  } = useTranslation();
+
   return (
     <>
       <section className="subpage-hero practical-hero">
         <div className="page-width subpage-hero-content">
           <span className="eyebrow">
-            PRAKTISCHE INFO
+            {t(
+              'practical.hero.eyebrow'
+            )}
           </span>
 
           <h1>
-            ALLES WAT JE
+            {t(
+              'practical.hero.titleLine1'
+            )}
+
             <br />
-            <span>MOET WETEN</span>
+
+            <span>
+              {t(
+                'practical.hero.titleLine2'
+              )}
+            </span>
           </h1>
 
           <p>
-            Vind hier onze komende wedstrijden,
-            trainingsuren en trainingslocaties.
+            {t(
+              'practical.hero.description'
+            )}
           </p>
         </div>
       </section>
 
-      {/* KOMENDE MATCHEN */}
       <section className="section-dark">
         <div className="page-width">
           <SectionHeader
-            eyebrow="WEDSTRIJDEN"
-            title="Komende matchen"
+            eyebrow={t(
+              'practical.matches.eyebrow'
+            )}
+            title={t(
+              'practical.matches.title'
+            )}
           />
 
           <div className="three-column-grid">
-            {matches.map((match, index) => (
-              <article
-                className="match-card compact"
-                key={`${match.date}-${index}`}
-              >
-                <div className="match-date">
-                  <CalendarDays size={18} />
-                  {match.day} {match.date}
-                </div>
+            {matches.map(
+              (
+                match,
+                index
+              ) => (
+                <article
+                  className="match-card compact"
+                  key={`${match.number}-${index}`}
+                >
+                  <div className="match-date">
+                    <CalendarDays
+                      size={18}
+                    />
 
-                <div className="match-teams">
-                  <Team
-                    name={match.homeTeam}
-                    category={match.homeCategory}
-                    isBnb={match.bnbSide === 'home'}
-                  />
+                    {t(
+                      match.dayKey
+                    )}{' '}
 
-                  <div className="vs">
-                    VS
+                    {match.number}{' '}
+
+                    {t(
+                      match.monthKey
+                    )}
                   </div>
 
-                  <Team
-                    name={match.awayTeam}
-                    category={match.awayCategory}
-                    isBnb={match.bnbSide === 'away'}
-                  />
-                </div>
+                  <div className="match-teams">
+                    <Team
+                      name={
+                        match.homeTeam
+                      }
+                      category={
+                        match.homeCategory
+                      }
+                      isBnb={
+                        match.bnbSide ===
+                        'home'
+                      }
+                    />
 
-                <div className="match-meta">
-                  <span>
-                    <Clock3 size={17} />
-                    {match.time}
-                  </span>
+                    <div className="vs">
+                      VS
+                    </div>
 
-                  <span>
-                    <MapPin size={17} />
-                    {match.location}
-                  </span>
-                </div>
-              </article>
-            ))}
+                    <Team
+                      name={
+                        match.awayTeam
+                      }
+                      category={
+                        match.awayCategory
+                      }
+                      isBnb={
+                        match.bnbSide ===
+                        'away'
+                      }
+                    />
+                  </div>
+
+                  <div className="match-meta">
+                    <span>
+                      <Clock3
+                        size={17}
+                      />
+
+                      {
+                        match.time
+                      }
+                    </span>
+
+                    <span>
+                      <MapPin
+                        size={17}
+                      />
+
+                      {
+                        match.location
+                      }
+                    </span>
+                  </div>
+                </article>
+              )
+            )}
           </div>
         </div>
       </section>
 
-      {/* TRAININGEN */}
       <section className="section-light">
         <div className="page-width">
           <SectionHeader
-            eyebrow="TRAININGEN"
-            title="Wanneer trainen we?"
+            eyebrow={t(
+              'practical.training.eyebrow'
+            )}
+            title={t(
+              'practical.training.title'
+            )}
           />
 
           <div className="training-panel">
             <div className="training-table">
               <div className="training-row training-head">
-                <span>Dag</span>
-                <span>Locatie</span>
-                <span>Uren</span>
+                <span>
+                  {t(
+                    'practical.training.day'
+                  )}
+                </span>
+
+                <span>
+                  {t(
+                    'practical.training.location'
+                  )}
+                </span>
+
+                <span>
+                  {t(
+                    'practical.training.hours'
+                  )}
+                </span>
               </div>
 
               <div className="training-row">
-                <strong>Dinsdag</strong>
+                <strong>
+                  {t(
+                    'practical.training.tuesday'
+                  )}
+                </strong>
 
                 <span>
                   Sport- en Cultureelcentrum Noordpool
@@ -180,7 +325,11 @@ export default function Practical() {
               </div>
 
               <div className="training-row">
-                <strong>Vrijdag</strong>
+                <strong>
+                  {t(
+                    'practical.training.friday'
+                  )}
+                </strong>
 
                 <span>
                   Hoofdstedelijk Atheneum Karel Buls

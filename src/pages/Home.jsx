@@ -6,6 +6,10 @@ import {
   Clock3,
 } from 'lucide-react';
 
+import {
+  useTranslation,
+} from 'react-i18next';
+
 import SectionHeader from '../components/SectionHeader';
 import '../partner-carousel.css';
 
@@ -53,7 +57,12 @@ const partnerGroup = [
   ...partners,
 ];
 
-function PartnerLogo({ logo, clone = false, index }) {
+function PartnerLogo({
+  logo,
+  clone = false,
+  index,
+  t,
+}) {
   const content = (
     <div className="logo-slot">
       <img
@@ -71,7 +80,16 @@ function PartnerLogo({ logo, clone = false, index }) {
         href={logo.href}
         target="_blank"
         rel="noreferrer"
-        aria-label={clone ? undefined : `Bezoek ${logo.alt}`}
+        aria-label={
+          clone
+            ? undefined
+            : t(
+                'home.partners.visit',
+                {
+                  name: logo.alt,
+                }
+              )
+        }
         tabIndex={clone ? -1 : 0}
         key={`${clone ? 'clone' : 'main'}-${logo.src}-${index}`}
       >
@@ -84,7 +102,16 @@ function PartnerLogo({ logo, clone = false, index }) {
     <Link
       className="partner-link"
       to={logo.href}
-      aria-label={clone ? undefined : `Meer informatie over ${logo.alt}`}
+      aria-label={
+        clone
+          ? undefined
+          : t(
+              'home.partners.more',
+              {
+                name: logo.alt,
+              }
+            )
+      }
       tabIndex={clone ? -1 : 0}
       key={`${clone ? 'clone' : 'main'}-${logo.src}-${index}`}
     >
@@ -93,45 +120,65 @@ function PartnerLogo({ logo, clone = false, index }) {
   );
 }
 
-function PartnerGroup({ clone = false }) {
+function PartnerGroup({
+  clone = false,
+  t,
+}) {
   return (
     <div
       className="partner-carousel-group"
-      aria-hidden={clone ? 'true' : undefined}
+      aria-hidden={
+        clone
+          ? 'true'
+          : undefined
+      }
     >
-      {partnerGroup.map((logo, index) => (
-        <PartnerLogo
-          key={`${clone ? 'clone' : 'main'}-${logo.src}-${index}`}
-          logo={logo}
-          clone={clone}
-          index={index}
-        />
-      ))}
+      {partnerGroup.map(
+        (logo, index) => (
+          <PartnerLogo
+            key={`${clone ? 'clone' : 'main'}-${logo.src}-${index}`}
+            logo={logo}
+            clone={clone}
+            index={index}
+            t={t}
+          />
+        )
+      )}
     </div>
   );
 }
 
 export default function Home() {
+  const {
+    t,
+  } = useTranslation();
+
   return (
     <>
-      {/* HERO */}
       <section className="home-hero hero-photo-section">
         <div className="hero-overlay" />
 
         <div className="page-width hero-content">
           <span className="eyebrow">
-            WELKOM BIJ
+            {t(
+              'home.hero.eyebrow'
+            )}
           </span>
 
           <h1>
-            <span>BRUSSEL NOORD</span>
+            <span>
+              BRUSSEL NOORD
+            </span>
+
             <br />
+
             BASKET
           </h1>
 
           <p>
-            Basketbal in Brussel. Een club waar ontwikkeling,
-            plezier en community op én naast het veld centraal staan.
+            {t(
+              'home.hero.description'
+            )}
           </p>
 
           <div className="hero-actions">
@@ -139,54 +186,90 @@ export default function Home() {
               className="button button-green"
               to="/praktisch"
             >
-              Praktische info
-              <ArrowRight size={18} />
+              {t(
+                'home.hero.practicalButton'
+              )}
+
+              <ArrowRight
+                size={18}
+              />
             </Link>
 
             <Link
               className="button button-outline"
               to="/contact"
             >
-              Contact
-              <ArrowRight size={18} />
+              {t(
+                'common.contact'
+              )}
+
+              <ArrowRight
+                size={18}
+              />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* PARTNERS */}
       <section className="logo-carousel-section section-dark">
         <div className="page-width">
           <SectionHeader
-            eyebrow="ONZE PARTNERS"
-            title="Samen maken we meer mogelijk."
+            eyebrow={t(
+              'home.partners.eyebrow'
+            )}
+            title={t(
+              'home.partners.title'
+            )}
           />
         </div>
 
         <div
           className="logo-marquee"
-          aria-label="Partnerlogo's"
+          aria-label={t(
+            'home.partners.aria'
+          )}
         >
           <div className="logo-track">
-            <PartnerGroup />
-            <PartnerGroup clone />
+            <PartnerGroup
+              t={t}
+            />
+
+            <PartnerGroup
+              clone
+              t={t}
+            />
           </div>
         </div>
       </section>
 
-      {/* VOLGENDE WEDSTRIJD */}
       <section className="section-light next-match-home">
         <div className="page-width">
           <SectionHeader
-            eyebrow="VOLGENDE WEDSTRIJD"
-            title="Kom BNB supporteren."
+            eyebrow={t(
+              'home.nextMatch.eyebrow'
+            )}
+            title={t(
+              'home.nextMatch.title'
+            )}
           />
 
           <div className="featured-match">
             <div className="featured-date">
-              <span>ZO</span>
-              <strong>11</strong>
-              <span>OKT</span>
+              <span>
+                {t(
+                  'home.nextMatch.day'
+                )}
+              </span>
+
+              <strong>
+                11
+              </strong>
+
+              <span>
+                {t(
+                  'home.nextMatch.month'
+                )}
+              </span>
             </div>
 
             <div className="featured-team">
@@ -228,39 +311,54 @@ export default function Home() {
 
             <div className="featured-info">
               <span>
-                <Clock3 size={18} />
+                <Clock3
+                  size={18}
+                />
+
                 16:00
               </span>
 
               <span>
-                <MapPin size={18} />
+                <MapPin
+                  size={18}
+                />
+
                 Sporthal De Kronkel
               </span>
 
               <span>
-                <CalendarDays size={18} />
-                U18 Niveau 4
+                <CalendarDays
+                  size={18}
+                />
+
+                {t(
+                  'home.nextMatch.level'
+                )}
               </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* PRAKTISCHE INFO CTA */}
       <section className="home-practical-cta section-dark">
         <div className="page-width split-cta">
           <div>
             <span className="eyebrow">
-              ALLES OP ÉÉN PLEK
+              {t(
+                'home.practical.eyebrow'
+              )}
             </span>
 
             <h2>
-              Trainingen, matchen en praktische info.
+              {t(
+                'home.practical.title'
+              )}
             </h2>
 
             <p>
-              Bekijk de komende wedstrijden, trainingsuren,
-              locaties en alle praktische afspraken van de club.
+              {t(
+                'home.practical.description'
+              )}
             </p>
           </div>
 
@@ -268,8 +366,13 @@ export default function Home() {
             className="button button-green"
             to="/praktisch"
           >
-            Bekijk praktische info
-            <ArrowRight size={18} />
+            {t(
+              'home.practical.button'
+            )}
+
+            <ArrowRight
+              size={18}
+            />
           </Link>
         </div>
       </section>

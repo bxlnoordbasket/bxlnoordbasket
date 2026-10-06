@@ -1,7 +1,20 @@
-import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import {
+  ArrowLeft,
+} from 'lucide-react';
+
+import {
+  Link,
+} from 'react-router-dom';
+
+import {
+  useTranslation,
+} from 'react-i18next';
 
 export default function BrusselsSupport() {
+  const {
+    t,
+  } = useTranslation();
+
   return (
     <section className="section-dark support-page">
       <div className="page-width support-page-inner">
@@ -9,8 +22,13 @@ export default function BrusselsSupport() {
           to="/"
           className="button button-outline support-back-button"
         >
-          <ArrowLeft size={18} />
-          Terug
+          <ArrowLeft
+            size={18}
+          />
+
+          {t(
+            'supportPage.back'
+          )}
         </Link>
 
         <div className="support-page-content">
@@ -21,10 +39,15 @@ export default function BrusselsSupport() {
           />
 
           <span className="eyebrow">
-            MET DE STEUN VAN
+            {t(
+              'supportPage.eyebrow'
+            )}
           </span>
+
           <p>
-            Met de steun van Faouzia Hariche, schepen van Jeugd van de Stad Brussel
+            {t(
+              'supportPage.text'
+            )}
           </p>
         </div>
       </div>

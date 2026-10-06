@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
+    "i18next": "^26.4.2",
+    "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "latest",
-    "vite": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-router-dom": "latest"
-  },
-  "devDependencies": {}
+    "react-i18next": "^17.0.15",
+    "react-router-dom": "latest",
+    "vite": "latest"
+  }
 }

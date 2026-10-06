@@ -1,0 +1,355 @@
+{
+  "nav": {
+    "home": "Home",
+    "practical": "Praktisch",
+    "about": "Over BNB",
+    "media": "Media",
+    "contact": "Contact",
+    "support": "Steun ons",
+    "openMenu": "Menu openen",
+    "closeMenu": "Menu sluiten",
+    "mainNavigation": "Hoofdnavigatie",
+    "homeAria": "Brussel Noord Basket home"
+  },
+
+  "language": {
+    "label": "Taal",
+    "nl": "NL",
+    "fr": "FR",
+    "en": "EN"
+  },
+
+  "common": {
+    "contact": "Contact",
+    "back": "Terug",
+    "backHome": "Terug naar home",
+    "viewPublication": "Bekijk publicatie",
+    "photoComing": "Foto volgt",
+    "openPhoto": "Open foto: {{name}}",
+    "closePhoto": "Foto sluiten",
+    "viewPhoto": "Foto bekijken"
+  },
+
+  "home": {
+    "hero": {
+      "eyebrow": "Welkom bij",
+      "description": "Basketbal in Brussel. Een club waar ontwikkeling, plezier en community op én naast het veld centraal staan.",
+      "practicalButton": "Praktische info"
+    },
+
+    "partners": {
+      "eyebrow": "Onze partners",
+      "title": "Samen maken we meer mogelijk.",
+      "aria": "Partnerlogo's",
+      "visit": "Bezoek {{name}}",
+      "more": "Meer informatie over {{name}}"
+    },
+
+    "nextMatch": {
+      "eyebrow": "Volgende wedstrijd",
+      "title": "Kom Brussel Noord Basket supporteren.",
+      "day": "ZO",
+      "month": "OKT",
+      "level": "U18 Niveau 4"
+    },
+
+    "practical": {
+      "eyebrow": "Alles op één plek",
+      "title": "Trainingen, matchen en praktische info.",
+      "description": "Bekijk de komende wedstrijden, trainingsuren, locaties en alle praktische afspraken van de club.",
+      "button": "Bekijk praktische info"
+    }
+  },
+
+  "practical": {
+    "hero": {
+      "eyebrow": "Praktische info",
+      "titleLine1": "Alles wat je",
+      "titleLine2": "moet weten",
+      "description": "Vind hier onze komende wedstrijden, trainingsuren en trainingslocaties."
+    },
+
+    "matches": {
+      "eyebrow": "Wedstrijden",
+      "title": "Komende matchen",
+      "sun": "ZO",
+      "sat": "ZA",
+      "oct": "OKT"
+    },
+
+    "training": {
+      "eyebrow": "Trainingen",
+      "title": "Wanneer trainen we?",
+      "day": "Dag",
+      "location": "Locatie",
+      "hours": "Uren",
+      "tuesday": "Dinsdag",
+      "friday": "Vrijdag"
+    }
+  },
+
+  "about": {
+    "hero": {
+      "eyebrow": "Over BNB",
+      "titleLine1": "Meer dan",
+      "titleLine2": "basketbal.",
+      "description": "Brussel Noord Basket is ontstaan uit een groep Brusselse jongeren die hun plek om samen te sporten niet zomaar wilden opgeven."
+    },
+
+    "story": {
+      "eyebrow": "Ons verhaal",
+      "title": "Van een groep jongeren naar een eigen club.",
+      "imageAlt": "Basketbaltraining bij Brussel Noord Basket",
+
+      "p1": "Het verhaal van Brussel Noord Basket begon niet met een groot plan, maar met een groep jongeren uit de Brusselse Noordwijk die vooral één ding wilden: blijven basketten.",
+
+      "p2": "Twee jaar geleden hield de basketbalclub waar de groep speelde plots op te bestaan. Daarmee dreigden niet alleen hun trainingen en wedstrijden te verdwijnen, maar ook een plek waar ze elkaar meerdere keren per week ontmoetten.",
+
+      "p3": "Onder impuls van Cas, toen 18 jaar, slaagde de groep erin om de zaal tijdelijk te behouden. Een jaar lang konden de jongeren er vrij blijven trainen. Maar hun ambitie ging verder dan af en toe samen basketten. Ze wilden opnieuw wedstrijden spelen, samen groeien en vooral hun eigen club uitbouwen.",
+
+      "p4": "In de zomer van 2026 werd daarom Brussel Noord Basket opgericht. Wat begon als het initiatief van een groep vrienden, groeide uit tot een officiële basketbalclub."
+    },
+
+    "club": {
+      "eyebrow": "Van idee naar club",
+      "title": "BNB staat er.",
+
+      "teamTitle": "Een eigen ploeg",
+      "teamText": "Brussel Noord Basket startte het seizoen met een U18-ploeg. De club neemt officieel deel aan de competities van Basketbal Vlaanderen.",
+
+      "recognizedTitle": "Erkend in Brussel",
+      "recognizedText": "BNB is ondertussen ook erkend als sportclub door de Vlaamse Gemeenschapscommissie. Een belangrijke stap in de verdere uitbouw van onze werking.",
+
+      "growTitle": "Blijven groeien",
+      "growText": "Onze ambitie is om vanuit de huidige U18-ploeg verder te groeien naar een bredere basketbalwerking waar nog meer Brusselse jongeren een plaats vinden."
+    },
+
+    "youth": {
+      "eyebrow": "Voor en door jongeren",
+      "titleLine1": "Een club die jongeren",
+      "titleLine2": "zelf mee uitbouwen.",
+
+      "p1": "Voor Brussel Noord Basket gaat het niet alleen om wat er op het veld gebeurt. We willen jongeren ook verantwoordelijkheid geven over hun eigen club, dromen en toekomst.",
+
+      "p2": "Daarom willen we spelers de kans geven om zich verder te ontwikkelen als scheidsrechter, coach of zelfs bestuurslid. Zo bouwen jongeren niet alleen mee aan een basketbalploeg, maar ook aan de organisatie erachter.",
+
+      "p3": "De vraag naar plaatsen om te sporten is groot in Brussel, terwijl de beschikbare ruimte beperkt is. Met BNB willen we zelf mee een antwoord bieden: een toegankelijke club waar jongeren kunnen sporten, elkaar ontmoeten en samen iets opbouwen.",
+
+      "contact": "Neem contact op"
+    },
+
+    "support": {
+      "eyebrow": "Help BNB groeien",
+      "title": "Samen bouwen we verder aan de club.",
+
+      "p1": "Een basketbalclub uitbouwen vraagt meer dan alleen motivatie. Zaalhuur, materiaal, wedstrijdtruitjes, coaches en scheidsrechters brengen allemaal kosten met zich mee.",
+
+      "p2": "Met de steun van onze leden, partners en supporters willen we Brussel Noord Basket verder laten groeien en meer Brusselse jongeren de kans geven om te basketten.",
+
+      "button": "Steun BNB"
+    }
+  },
+
+  "media": {
+    "hero": {
+      "eyebrow": "Media",
+      "title": "In beeld.",
+      "description": "Van persartikels en interviews tot beelden vanop het veld. Ontdek waar Brussel Noord Basket in de media verschijnt en bekijk momenten uit het leven van de club."
+    },
+
+    "news": {
+      "eyebrow": "In de media",
+      "title": "Brussel Noord Basket in het nieuws.",
+
+      "article": "Artikel",
+      "articleRadio": "Artikel & radio",
+
+      "bruzzDate": "2 oktober 2026",
+      "bruzzTitle": "Cas uit Schaarbeek richt basketclub op: ‘Een plek voor en door jongeren’",
+      "bruzzDescription": "BRUZZ sprak met Cas Wuyts over het ontstaan van Brussel Noord Basket, de zoektocht naar infrastructuur en de ambitie om een club voor en door jongeren uit te bouwen.",
+
+      "standaardDate": "1 oktober 2026",
+      "standaardTitle": "Toen zijn basketclub werd opgeheven, besloot Brusselaar Cas (19) er zelf een te beginnen",
+      "standaardDescription": "De Standaard brengt het verhaal achter Brussel Noord Basket. Over lange wachtlijsten, het tekort aan beschikbare sportinfrastructuur en de ambitie om jongeren in Brussel opnieuw een plaats op het basketveld te geven.",
+
+      "nieuwsbladDate": "Oktober 2026",
+      "nieuwsbladTitle": "Toen zijn basketclub werd opgeheven, besloot Brusselaar Cas er zelf een te beginnen",
+      "nieuwsbladDescription": "Ook Het Nieuwsblad vertelt het verhaal van de oprichting van Brussel Noord Basket en hoe de club jongeren een nieuwe plek probeert te bieden binnen het Brusselse basketbal."
+    },
+
+    "gallery": {
+      "eyebrow": "Foto's",
+      "title": "Op en naast het veld.",
+      "mainAlt": "Brussel Noord Basket",
+      "mainCaption": "Brussel Noord Basket",
+      "matchPhotos": "Wedstrijdfoto's",
+      "training": "Trainingen",
+      "team": "Team",
+      "behindScenes": "Achter de schermen",
+      "community": "Community"
+    }
+  },
+
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "titleLine1": "Neem contact",
+      "titleLine2": "met ons op.",
+      "description": "Een vraag over trainingen, wedstrijden, lidmaatschap of onze club? Stuur ons gerust een bericht."
+    },
+
+    "info": {
+      "eyebrow": "Contactgegevens",
+      "title": "We horen graag van je.",
+      "description": "Heb je een vraag over Brussel Noord Basket? Neem contact met ons op via e-mail of sociale media.",
+      "email": "E-mail"
+    },
+
+    "form": {
+      "eyebrow": "Stuur een bericht",
+      "title": "Neem contact op.",
+      "name": "Naam",
+      "email": "E-mail",
+      "subject": "Onderwerp",
+      "message": "Bericht",
+
+      "sending": "Verzenden...",
+      "send": "Verstuur bericht",
+
+      "privacyBefore": "We gebruiken je gegevens alleen om je bericht te behandelen en eventuele opvolging te doen. Lees onze",
+      "privacyLink": "privacyverklaring",
+
+      "successTitle": "Bericht verzonden.",
+      "successText": "Bedankt voor je bericht. We nemen zo snel mogelijk contact met je op.",
+
+      "errorTitle": "Verzenden mislukt.",
+
+      "unavailable": "Het contactformulier is momenteel niet beschikbaar. Stuur ons rechtstreeks een e-mail via bxlnoordbasket@gmail.com.",
+
+      "rateLimit": "Dit formulier werkt momenteel niet. Je bent altijd welkom om ons een e-mail te sturen via bxlnoordbasket@gmail.com.",
+
+      "failed": "Het bericht kon niet worden verzonden. Probeer het later opnieuw of stuur ons rechtstreeks een e-mail via bxlnoordbasket@gmail.com.",
+
+      "network": "Het bericht kon niet worden verzonden. Controleer je internetverbinding of stuur ons rechtstreeks een e-mail via bxlnoordbasket@gmail.com."
+    }
+  },
+
+  "privacy": {
+    "back": "Terug naar home",
+    "eyebrow": "Privacy",
+    "title": "Privacyverklaring",
+
+    "intro": "Brussel Noord Basket vzw respecteert je privacy. In deze privacyverklaring leggen we uit welke persoonsgegevens we via deze website verwerken, waarom we dat doen en welke rechten je hebt.",
+
+    "s1": {
+      "title": "1. Wie verwerkt je gegevens?",
+      "controller": "De verwerkingsverantwoordelijke is",
+      "seat": "Maatschappelijke zetel: Antwerpselaan 40, 1000 Brussel",
+      "company": "Ondernemingsnummer:",
+      "email": "E-mail:"
+    },
+
+    "s2": {
+      "title": "2. Welke gegevens verzamelen we?",
+      "intro": "Wanneer je het contactformulier gebruikt, kunnen we de volgende gegevens verwerken:",
+      "i1": "je naam;",
+      "i2": "je e-mailadres;",
+      "i3": "het onderwerp van je bericht;",
+      "i4": "de inhoud van je bericht;",
+      "i5": "technische gegevens die nodig zijn om het formulier veilig te verwerken."
+    },
+
+    "s3": {
+      "title": "3. Waarom verwerken we deze gegevens?",
+      "p1": "We gebruiken deze gegevens uitsluitend om je vraag of bericht te behandelen, je te antwoorden en eventuele verdere opvolging te doen.",
+      "p2": "De verwerking gebeurt op basis van ons gerechtvaardigd belang om vragen en communicatie over de club te behandelen. Wanneer je bericht betrekking heeft op een mogelijke inschrijving of overeenkomst, kan de verwerking ook nodig zijn om stappen te nemen op jouw verzoek vóór het sluiten van een overeenkomst."
+    },
+
+    "s4": {
+      "title": "4. Contactformulier en Formspree",
+      "p1": "Ons contactformulier wordt technisch verwerkt via Formspree. Wanneer je het formulier verstuurt, worden de gegevens die je invult aan Formspree doorgegeven zodat het bericht aan ons kan worden bezorgd.",
+      "p2": "Formspree host zijn diensten via Amazon Web Services in de Verenigde Staten en geeft aan voor doorgiften als verwerker gebruik te maken van Standard Contractual Clauses (SCC's)."
+    },
+
+    "s5": {
+      "title": "5. Hoe lang bewaren we je gegevens?",
+      "p1": "We bewaren contactgegevens niet langer dan nodig is om je vraag te behandelen en eventuele noodzakelijke opvolging te doen. Wanneer gegevens langer bewaard moeten worden om te voldoen aan een wettelijke verplichting of voor een lopend dossier, worden ze alleen daarvoor bewaard."
+    },
+
+    "s6": {
+      "title": "6. Delen we je gegevens?",
+      "p1": "We verkopen je persoonsgegevens niet. Gegevens worden alleen gedeeld met dienstverleners wanneer dat nodig is om de website of het contactformulier te laten functioneren, of wanneer we daartoe wettelijk verplicht zijn."
+    },
+
+    "s7": {
+      "title": "7. Cookies en tracking",
+      "p1": "Deze website gebruikt momenteel geen analytics- of marketingcookies en bevat geen advertentietrackers. Als dit in de toekomst verandert, passen we deze privacyverklaring aan en voorzien we waar nodig een toestemmingsmechanisme."
+    },
+
+    "s8": {
+      "title": "8. Je rechten",
+      "p1": "Je kunt ons onder meer vragen om je persoonsgegevens in te kijken, te verbeteren, te wissen of de verwerking ervan te beperken. In bepaalde gevallen kun je ook bezwaar maken tegen de verwerking.",
+      "emailBefore": "Stuur daarvoor een e-mail naar",
+      "p3": "Je hebt daarnaast het recht om een klacht in te dienen bij de Belgische Gegevensbeschermingsautoriteit.",
+      "authority": "Gegevensbeschermingsautoriteit"
+    },
+
+    "s9": {
+      "title": "9. Wijzigingen",
+      "p1": "We kunnen deze privacyverklaring aanpassen wanneer onze website of gegevensverwerking verandert.",
+      "updated": "Laatste update: 2 oktober 2026."
+    }
+  },
+
+  "supportPage": {
+    "back": "Terug",
+    "eyebrow": "Met de steun van",
+    "text": "Met de steun van Faouzia Hariche, schepen van Jeugd van de Stad Brussel"
+  },
+
+  "notFound": {
+    "eyebrow": "Pagina niet gevonden",
+    "titleLine1": "Hier is geen",
+    "titleLine2": "wedstrijd.",
+    "description": "De pagina die je zoekt bestaat niet, is verplaatst of de link is niet meer geldig.",
+    "back": "Terug naar home",
+    "contact": "Contact"
+  },
+
+  "footer": {
+    "description": "Meer dan basketbal. Een club waar spelers, coaches, ouders en supporters samen groeien.",
+    "pages": "Pagina's",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "helpTitle": "Help onze club groeien.",
+    "support": "Steun ons",
+    "privacyStatement": "Privacyverklaring",
+    "companyNumber": "Ondernemingsnummer 1039.061.822"
+  },
+
+  "seo": {
+    "homeTitle": "Brussel Noord Basket | Basketbal in Brussel",
+    "homeDescription": "Brussel Noord Basket is een Brusselse basketbalclub voor en door jongeren. Bekijk wedstrijden, trainingsuren, praktische info en het verhaal van BNB.",
+
+    "practicalTitle": "Praktische info | Brussel Noord Basket",
+    "practicalDescription": "Bekijk de komende wedstrijden, trainingsuren en trainingslocaties van Brussel Noord Basket.",
+
+    "aboutTitle": "Over BNB | Brussel Noord Basket",
+    "aboutDescription": "Ontdek het verhaal van Brussel Noord Basket, een Brusselse basketbalclub ontstaan voor en door jongeren.",
+
+    "mediaTitle": "Media | Brussel Noord Basket",
+    "mediaDescription": "Bekijk persartikels, interviews en foto's van Brussel Noord Basket op en naast het veld.",
+
+    "contactTitle": "Contact | Brussel Noord Basket",
+    "contactDescription": "Neem contact op met Brussel Noord Basket voor vragen over trainingen, wedstrijden, lidmaatschap of de club.",
+
+    "privacyTitle": "Privacyverklaring | Brussel Noord Basket",
+    "privacyDescription": "Lees hoe Brussel Noord Basket vzw persoonsgegevens verwerkt en beschermt.",
+
+    "supportTitle": "Met de steun van Stad Brussel | Brussel Noord Basket",
+    "supportDescription": "Brussel Noord Basket met de steun van Faouzia Hariche, schepen van Jeugd van de Stad Brussel.",
+
+    "notFoundTitle": "Pagina niet gevonden | Brussel Noord Basket",
+    "notFoundDescription": "De gevraagde pagina kon niet worden gevonden."
+  }
+}

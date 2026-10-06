@@ -1,4 +1,7 @@
-import { Link } from 'react-router-dom';
+import {
+  Link,
+} from 'react-router-dom';
+
 import {
   ArrowRight,
   Users,
@@ -6,40 +9,57 @@ import {
   Target,
 } from 'lucide-react';
 
+import {
+  useTranslation,
+} from 'react-i18next';
+
 import '../about-page.css';
 
 export default function About() {
+  const {
+    t,
+  } = useTranslation();
+
   return (
     <>
-      {/* HERO */}
       <section className="subpage-hero about-hero">
         <div className="page-width subpage-hero-content">
           <span className="eyebrow">
-            OVER BNB
+            {t(
+              'about.hero.eyebrow'
+            )}
           </span>
 
           <h1>
-            MEER DAN
+            {t(
+              'about.hero.titleLine1'
+            )}
+
             <br />
-            <span>BASKETBAL.</span>
+
+            <span>
+              {t(
+                'about.hero.titleLine2'
+              )}
+            </span>
           </h1>
 
           <p>
-            Brussel Noord Basket is ontstaan uit een groep Brusselse
-            jongeren die hun plek om samen te sporten niet zomaar
-            wilden opgeven.
+            {t(
+              'about.hero.description'
+            )}
           </p>
         </div>
       </section>
 
-      {/* ONS VERHAAL */}
       <section className="section-light">
         <div className="page-width about-story-grid">
-
           <div className="about-photo-wrap">
             <img
               src="/assets/training.jpg"
-              alt="Basketbaltraining bij Brussel Noord Basket"
+              alt={t(
+                'about.story.imageAlt'
+              )}
             />
 
             <div className="green-corner" />
@@ -47,77 +67,76 @@ export default function About() {
 
           <div className="about-copy">
             <span className="eyebrow">
-              ONS VERHAAL
+              {t(
+                'about.story.eyebrow'
+              )}
             </span>
 
             <h2>
-              VAN EEN GROEP JONGEREN
-              NAAR EEN EIGEN CLUB.
+              {t(
+                'about.story.title'
+              )}
             </h2>
 
             <p>
-              Het verhaal van Brussel Noord Basket begon niet met
-              een groot plan, maar met een groep jongeren uit de
-              Brusselse Noordwijk die vooral één ding wilden:
-              blijven basketten.
+              {t(
+                'about.story.p1'
+              )}
             </p>
 
             <p>
-              Twee jaar geleden hield de basketbalclub waar de groep
-              speelde plots op te bestaan. Daarmee dreigden niet
-              alleen hun trainingen en wedstrijden te verdwijnen,
-              maar ook een plek waar ze elkaar meerdere keren per
-              week ontmoetten.
+              {t(
+                'about.story.p2'
+              )}
             </p>
 
             <p>
-              Onder impuls van Cas, toen 18 jaar, slaagde de groep
-              erin om de zaal tijdelijk te behouden. Een jaar lang
-              konden de jongeren er vrij blijven trainen. Maar hun
-              ambitie ging verder dan af en toe samen basketten.
-              Ze wilden opnieuw wedstrijden spelen, samen groeien
-              en vooral hun eigen club uitbouwen.
+              {t(
+                'about.story.p3'
+              )}
             </p>
 
             <p>
-              In de zomer van 2026 werd daarom
-              Brussel Noord Basket opgericht.
-              Wat begon als het initiatief van een groep vrienden,
-              groeide uit tot een officiële basketbalclub.
+              {t(
+                'about.story.p4'
+              )}
             </p>
           </div>
-
         </div>
       </section>
 
-      {/* VAN IDEE NAAR CLUB */}
       <section className="section-dark">
         <div className="page-width">
           <div className="section-header">
             <div>
               <span className="eyebrow">
-                VAN IDEE NAAR CLUB
+                {t(
+                  'about.club.eyebrow'
+                )}
               </span>
 
               <h2>
-                BNB STAAT ER.
+                {t(
+                  'about.club.title'
+                )}
               </h2>
             </div>
           </div>
 
           <div className="values-grid">
-
             <article className="value-card">
               <Users />
 
               <h3>
-                Een eigen ploeg
+                {t(
+                  'about.club.teamTitle'
+                )}
               </h3>
 
               <p>
-                Brussel Noord Basket startte het seizoen met een
-                U18-ploeg. De club neemt officieel deel aan de
-                competities van Basketbal Vlaanderen.
+                {t(
+                  'about.club.teamText'
+                )}
               </p>
             </article>
 
@@ -125,13 +144,15 @@ export default function About() {
               <Heart />
 
               <h3>
-                Erkend in Brussel
+                {t(
+                  'about.club.recognizedTitle'
+                )}
               </h3>
 
               <p>
-                BNB is ondertussen ook erkend als sportclub door
-                de Vlaamse Gemeenschapscommissie. Een belangrijke
-                stap in de verdere uitbouw van onze werking.
+                {t(
+                  'about.club.recognizedText'
+                )}
               </p>
             </article>
 
@@ -139,56 +160,58 @@ export default function About() {
               <Target />
 
               <h3>
-                Blijven groeien
+                {t(
+                  'about.club.growTitle'
+                )}
               </h3>
 
               <p>
-                Onze ambitie is om vanuit de huidige U18-ploeg
-                verder te groeien naar een bredere basketbalwerking
-                waar nog meer Brusselse jongeren een plaats vinden.
+                {t(
+                  'about.club.growText'
+                )}
               </p>
             </article>
-
           </div>
         </div>
       </section>
 
-      {/* VOOR EN DOOR JONGEREN */}
       <section className="section-light youth-section">
         <div className="page-width youth-content">
-
           <span className="eyebrow">
-            VOOR EN DOOR JONGEREN
+            {t(
+              'about.youth.eyebrow'
+            )}
           </span>
 
           <h2>
-            EEN CLUB DIE JONGEREN
+            {t(
+              'about.youth.titleLine1'
+            )}
+
             <br />
-            ZELF MEE UITBOUWEN.
+
+            {t(
+              'about.youth.titleLine2'
+            )}
           </h2>
 
           <div className="youth-copy">
             <p>
-              Voor Brussel Noord Basket gaat het niet alleen om
-              wat er op het veld gebeurt. We willen jongeren ook
-              verantwoordelijkheid geven over hun eigen club,
-              dromen en toekomst.
+              {t(
+                'about.youth.p1'
+              )}
             </p>
 
             <p>
-              Daarom willen we spelers de kans geven om zich verder
-              te ontwikkelen als scheidsrechter, coach of zelfs
-              bestuurslid. Zo bouwen jongeren niet alleen mee aan
-              een basketbalploeg, maar ook aan de organisatie
-              erachter.
+              {t(
+                'about.youth.p2'
+              )}
             </p>
 
             <p>
-              De vraag naar plaatsen om te sporten is groot in
-              Brussel, terwijl de beschikbare ruimte beperkt is.
-              Met BNB willen we zelf mee een antwoord bieden:
-              een toegankelijke club waar jongeren kunnen sporten,
-              elkaar ontmoeten en samen iets opbouwen.
+              {t(
+                'about.youth.p3'
+              )}
             </p>
           </div>
 
@@ -196,39 +219,42 @@ export default function About() {
             className="button button-green youth-contact-button"
             to="/contact"
           >
-            Neem contact op
-            <ArrowRight size={18} />
-          </Link>
+            {t(
+              'about.youth.contact'
+            )}
 
+            <ArrowRight
+              size={18}
+            />
+          </Link>
         </div>
       </section>
 
-      {/* STEUN BNB */}
       <section className="section-dark">
         <div className="page-width split-cta">
-
           <div>
             <span className="eyebrow">
-              HELP BNB GROEIEN
+              {t(
+                'about.support.eyebrow'
+              )}
             </span>
 
             <h2>
-              SAMEN BOUWEN WE
-              VERDER AAN DE CLUB.
+              {t(
+                'about.support.title'
+              )}
             </h2>
 
             <p>
-              Een basketbalclub uitbouwen vraagt meer dan alleen
-              motivatie. Zaalhuur, materiaal, wedstrijdtruitjes,
-              coaches en scheidsrechters brengen allemaal kosten
-              met zich mee.
+              {t(
+                'about.support.p1'
+              )}
             </p>
 
             <p>
-              Met de steun van onze leden, partners en supporters
-              willen we Brussel Noord Basket verder laten groeien
-              en meer Brusselse jongeren de kans geven om te
-              basketten.
+              {t(
+                'about.support.p2'
+              )}
             </p>
           </div>
 
@@ -238,10 +264,14 @@ export default function About() {
             target="_blank"
             rel="noreferrer"
           >
-            Steun BNB
-            <ArrowRight size={18} />
-          </a>
+            {t(
+              'about.support.button'
+            )}
 
+            <ArrowRight
+              size={18}
+            />
+          </a>
         </div>
       </section>
     </>

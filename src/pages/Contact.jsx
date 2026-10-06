@@ -1,5 +1,11 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {
+  useState,
+} from 'react';
+
+import {
+  Link,
+} from 'react-router-dom';
+
 import {
   AlertCircle,
   CheckCircle2,
@@ -7,10 +13,16 @@ import {
   Send,
 } from 'lucide-react';
 
+import {
+  useTranslation,
+} from 'react-i18next';
+
 const FORMSPREE_ENDPOINT =
   import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
-function InstagramIcon({ size = 18 }) {
+function InstagramIcon({
+  size = 18,
+}) {
   return (
     <svg
       width={size}
@@ -28,6 +40,7 @@ function InstagramIcon({ size = 18 }) {
         stroke="currentColor"
         strokeWidth="2"
       />
+
       <circle
         cx="12"
         cy="12"
@@ -35,12 +48,20 @@ function InstagramIcon({ size = 18 }) {
         stroke="currentColor"
         strokeWidth="2"
       />
-      <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" />
+
+      <circle
+        cx="17.4"
+        cy="6.6"
+        r="1.1"
+        fill="currentColor"
+      />
     </svg>
   );
 }
 
-function FacebookIcon({ size = 18 }) {
+function FacebookIcon({
+  size = 18,
+}) {
   return (
     <svg
       width={size}
@@ -55,57 +76,118 @@ function FacebookIcon({ size = 18 }) {
 }
 
 export default function Contact() {
-  const [status, setStatus] = useState('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const {
+    t,
+  } = useTranslation();
 
-  async function handleSubmit(event) {
+  const [
+    status,
+    setStatus,
+  ] = useState(
+    'idle'
+  );
+
+  const [
+    errorKey,
+    setErrorKey,
+  ] = useState(
+    ''
+  );
+
+  async function handleSubmit(
+    event
+  ) {
     event.preventDefault();
 
-    if (!FORMSPREE_ENDPOINT) {
-      setStatus('error');
-      setErrorMessage(
-        'Het contactformulier is momenteel niet beschikbaar. Stuur ons rechtstreeks een e-mail via bxlnoordbasket@gmail.com.'
+    if (
+      !FORMSPREE_ENDPOINT
+    ) {
+      setStatus(
+        'error'
       );
+
+      setErrorKey(
+        'contact.form.unavailable'
+      );
+
       return;
     }
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+    const form =
+      event.currentTarget;
 
-    setStatus('loading');
-    setErrorMessage('');
+    const formData =
+      new FormData(
+        form
+      );
+
+    setStatus(
+      'loading'
+    );
+
+    setErrorKey(
+      ''
+    );
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          Accept: 'application/json',
-        },
-      });
+      const response =
+        await fetch(
+          FORMSPREE_ENDPOINT,
+          {
+            method:
+              'POST',
 
-      if (response.ok) {
-        form.reset();
-        setStatus('success');
-        return;
-      }
+            body:
+              formData,
 
-      if (response.status === 429) {
-        setStatus('error');
-        setErrorMessage(
-          'Dit formulier werkt momenteel niet. Je bent altijd welkom om ons een e-mail te sturen via bxlnoordbasket@gmail.com.'
+            headers: {
+              Accept:
+                'application/json',
+            },
+          }
         );
+
+      if (
+        response.ok
+      ) {
+        form.reset();
+
+        setStatus(
+          'success'
+        );
+
         return;
       }
 
-      setStatus('error');
-      setErrorMessage(
-        'Het bericht kon niet worden verzonden. Probeer het later opnieuw of stuur ons rechtstreeks een e-mail via bxlnoordbasket@gmail.com.'
+      if (
+        response.status ===
+        429
+      ) {
+        setStatus(
+          'error'
+        );
+
+        setErrorKey(
+          'contact.form.rateLimit'
+        );
+
+        return;
+      }
+
+      setStatus(
+        'error'
+      );
+
+      setErrorKey(
+        'contact.form.failed'
       );
     } catch {
-      setStatus('error');
-      setErrorMessage(
-        'Het bericht kon niet worden verzonden. Controleer je internetverbinding of stuur ons rechtstreeks een e-mail via bxlnoordbasket@gmail.com.'
+      setStatus(
+        'error'
+      );
+
+      setErrorKey(
+        'contact.form.network'
       );
     }
   }
@@ -115,18 +197,29 @@ export default function Contact() {
       <section className="subpage-hero contact-hero">
         <div className="page-width subpage-hero-content">
           <span className="eyebrow">
-            CONTACT
+            {t(
+              'contact.hero.eyebrow'
+            )}
           </span>
 
           <h1>
-            NEEM CONTACT
+            {t(
+              'contact.hero.titleLine1'
+            )}
+
             <br />
-            <span>MET ONS OP.</span>
+
+            <span>
+              {t(
+                'contact.hero.titleLine2'
+              )}
+            </span>
           </h1>
 
           <p>
-            Een vraag over trainingen, wedstrijden, lidmaatschap
-            of onze club? Stuur ons gerust een bericht.
+            {t(
+              'contact.hero.description'
+            )}
           </p>
         </div>
       </section>
@@ -135,24 +228,36 @@ export default function Contact() {
         <div className="page-width contact-layout">
           <aside className="contact-info-panel">
             <span className="eyebrow">
-              CONTACTGEGEVENS
+              {t(
+                'contact.info.eyebrow'
+              )}
             </span>
 
             <h2>
-              WE HOREN GRAAG VAN JE.
+              {t(
+                'contact.info.title'
+              )}
             </h2>
 
             <p>
-              Heb je een vraag over Brussel Noord Basket?
-              Neem contact met ons op via e-mail of sociale media.
+              {t(
+                'contact.info.description'
+              )}
             </p>
 
             <div className="contact-detail-list">
               <a href="mailto:bxlnoordbasket@gmail.com">
-                <Mail size={20} />
+                <Mail
+                  size={20}
+                />
 
                 <span>
-                  <small>E-mail</small>
+                  <small>
+                    {t(
+                      'contact.info.email'
+                    )}
+                  </small>
+
                   <strong>
                     bxlnoordbasket@gmail.com
                   </strong>
@@ -167,6 +272,7 @@ export default function Contact() {
                 rel="noreferrer"
               >
                 <InstagramIcon />
+
                 Instagram
               </a>
 
@@ -176,6 +282,7 @@ export default function Contact() {
                 rel="noreferrer"
               >
                 <FacebookIcon />
+
                 Facebook
               </a>
             </div>
@@ -183,108 +290,167 @@ export default function Contact() {
 
           <form
             className="contact-form"
-            onSubmit={handleSubmit}
+            onSubmit={
+              handleSubmit
+            }
           >
             <div className="form-title">
               <span className="eyebrow">
-                STUUR EEN BERICHT
+                {t(
+                  'contact.form.eyebrow'
+                )}
               </span>
 
               <h2>
-                NEEM CONTACT OP.
+                {t(
+                  'contact.form.title'
+                )}
               </h2>
             </div>
 
             <div className="form-grid">
               <label>
-                Naam
+                {t(
+                  'contact.form.name'
+                )}
+
                 <input
                   type="text"
                   name="name"
                   autoComplete="name"
                   required
-                  disabled={status === 'loading'}
+                  disabled={
+                    status ===
+                    'loading'
+                  }
                 />
               </label>
 
               <label>
-                E-mail
+                {t(
+                  'contact.form.email'
+                )}
+
                 <input
                   type="email"
                   name="email"
                   autoComplete="email"
                   required
-                  disabled={status === 'loading'}
+                  disabled={
+                    status ===
+                    'loading'
+                  }
                 />
               </label>
             </div>
 
             <label>
-              Onderwerp
+              {t(
+                'contact.form.subject'
+              )}
+
               <input
                 type="text"
                 name="subject"
                 required
-                disabled={status === 'loading'}
+                disabled={
+                  status ===
+                  'loading'
+                }
               />
             </label>
 
             <label>
-              Bericht
+              {t(
+                'contact.form.message'
+              )}
+
               <textarea
                 name="message"
                 rows="7"
                 required
-                disabled={status === 'loading'}
+                disabled={
+                  status ===
+                  'loading'
+                }
               />
             </label>
 
             <button
               className="button button-green form-submit"
               type="submit"
-              disabled={status === 'loading'}
+              disabled={
+                status ===
+                'loading'
+              }
             >
-              {status === 'loading'
-                ? 'Verzenden...'
-                : 'Verstuur bericht'}
+              {status ===
+              'loading'
+                ? t(
+                    'contact.form.sending'
+                  )
+                : t(
+                    'contact.form.send'
+                  )}
 
-              <Send size={18} />
+              <Send
+                size={18}
+              />
             </button>
 
             <p className="form-privacy-note">
-              We gebruiken je gegevens alleen om je bericht
-              te behandelen en eventuele opvolging te doen.
-              Lees onze{' '}
+              {t(
+                'contact.form.privacyBefore'
+              )}{' '}
+
               <Link to="/privacy">
-                privacyverklaring
+                {t(
+                  'contact.form.privacyLink'
+                )}
               </Link>.
             </p>
 
-            {status === 'success' && (
+            {status ===
+              'success' && (
               <div className="form-message form-message-success">
-                <CheckCircle2 size={20} />
+                <CheckCircle2
+                  size={20}
+                />
 
                 <div>
-                  <strong>Bericht verzonden.</strong>
+                  <strong>
+                    {t(
+                      'contact.form.successTitle'
+                    )}
+                  </strong>
+
                   <p>
-                    Bedankt voor je bericht. We nemen zo snel
-                    mogelijk contact met je op.
+                    {t(
+                      'contact.form.successText'
+                    )}
                   </p>
                 </div>
               </div>
             )}
 
-            {status === 'error' && (
+            {status ===
+              'error' && (
               <div className="form-message form-message-error">
-                <AlertCircle size={20} />
+                <AlertCircle
+                  size={20}
+                />
 
                 <div>
                   <strong>
-                    Verzenden mislukt.
+                    {t(
+                      'contact.form.errorTitle'
+                    )}
                   </strong>
 
                   <p>
-                    {errorMessage}
+                    {t(
+                      errorKey
+                    )}
                   </p>
                 </div>
               </div>
