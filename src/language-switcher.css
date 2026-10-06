@@ -3,26 +3,17 @@
 ====================================================== */
 
 @media (min-width: 981px) {
-  /*
-    Totale beschikbare breedte = 1180px
-
-    240px logo
-    560px navigatie
-    340px actions
-    2 x 20px gap
-
-    = exact 1180px
-  */
-
   .header-inner {
     display: grid;
 
     grid-template-columns:
       240px
-      560px
+      500px
       340px;
 
     align-items: center;
+
+    justify-content: space-between;
 
     gap: 20px;
   }
@@ -52,52 +43,39 @@
   ==================================================== */
 
   .main-nav {
-    width: 560px;
+    width: 500px;
 
     display: flex;
 
     align-items: center;
 
     justify-content: center;
-
-    gap: 0;
   }
 
   /*
-    Geen 5 identieke kolommen meer.
+    Momenteel 4 navigatie-items:
 
-    Praktisch krijgt bewust meer ruimte omdat:
+    HOME
+    PRAKTISCH / INFOS PRATIQUES / PRACTICAL INFO
+    OVER BNB / À PROPOS / ABOUT BNB
+    CONTACT
 
-    NL = PRAKTISCH
-    FR = INFOS PRATIQUES
-    EN = PRACTICAL INFO
-
-    allemaal sterk verschillen in lengte.
+    Praktisch krijgt bewust meer ruimte.
   */
 
   .nav-grid {
-    width: 560px;
+    width: 500px;
 
     display: grid;
 
     grid-template-columns:
-      90px
-      150px
-      120px
-      90px
-      110px;
+      95px
+      175px
+      125px
+      105px;
 
     align-items: center;
   }
-
-  /*
-    Het gridvak heeft een vaste breedte,
-    maar de link zelf blijft rond de tekst.
-
-    Daardoor verandert de positie nooit
-    en blijft de groene underline mooi
-    onder alleen de tekst staan.
-  */
 
   .nav-grid .nav-link {
     width: max-content;
@@ -231,7 +209,8 @@
 }
 
 .language-button.active {
-  background: var(--green);
+  background:
+    var(--green);
 
   color: #070707;
 }
