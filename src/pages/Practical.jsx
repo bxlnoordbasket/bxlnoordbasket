@@ -13,38 +13,6 @@ import SectionHeader from '../components/SectionHeader';
 const matches = [
   {
     dayKey:
-      'practical.matches.sun',
-
-    number:
-      '11',
-
-    monthKey:
-      'practical.matches.oct',
-
-    homeTeam:
-      'Red Dragons Huldenberg',
-
-    homeCategory:
-      'J18 A',
-
-    awayTeam:
-      'Brussel Noord Basket',
-
-    awayCategory:
-      'J18 A',
-
-    time:
-      '16:00',
-
-    location:
-      'Sporthal De Kronkel',
-
-    bnbSide:
-      'away',
-  },
-
-  {
-    dayKey:
       'practical.matches.sat',
 
     number:
@@ -105,6 +73,38 @@ const matches = [
 
     bnbSide:
       'home',
+  },
+
+  {
+    dayKey:
+      'practical.matches.sat',
+
+    number:
+      '07',
+
+    month:
+      'NOV',
+
+    homeTeam:
+      'Bct Overijse',
+
+    homeCategory:
+      'J18 B',
+
+    awayTeam:
+      'Brussel Noord Basket',
+
+    awayCategory:
+      'J18 A',
+
+    time:
+      '13:00',
+
+    location:
+      'Gemeentelijk Sporthal Overijse Den Heurk',
+
+    bnbSide:
+      'away',
   },
 ];
 
@@ -208,9 +208,11 @@ export default function Practical() {
 
                     {match.number}{' '}
 
-                    {t(
-                      match.monthKey
-                    )}
+                    {match.monthKey
+                      ? t(
+                          match.monthKey
+                        )
+                      : match.month}
                   </div>
 
                   <div className="match-teams">

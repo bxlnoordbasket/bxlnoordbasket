@@ -257,39 +257,19 @@ export default function Home() {
             <div className="featured-date">
               <span>
                 {t(
-                  'home.nextMatch.day'
+                  'practical.matches.sat'
                 )}
               </span>
 
               <strong>
-                11
+                17
               </strong>
 
               <span>
                 {t(
-                  'home.nextMatch.month'
+                  'practical.matches.oct'
                 )}
               </span>
-            </div>
-
-            <div className="featured-team">
-              <div className="opponent-placeholder large">
-                RD
-              </div>
-
-              <div>
-                <strong>
-                  Red Dragons Huldenberg
-                </strong>
-
-                <span>
-                  J18 A
-                </span>
-              </div>
-            </div>
-
-            <div className="featured-vs">
-              VS
             </div>
 
             <div className="featured-team bnb-team">
@@ -309,13 +289,33 @@ export default function Home() {
               </div>
             </div>
 
+            <div className="featured-vs">
+              VS
+            </div>
+
+            <div className="featured-team">
+              <div className="opponent-placeholder large">
+                DB
+              </div>
+
+              <div>
+                <strong>
+                  Dynamo Bertem
+                </strong>
+
+                <span>
+                  J18 B
+                </span>
+              </div>
+            </div>
+
             <div className="featured-info">
               <span>
                 <Clock3
                   size={18}
                 />
 
-                16:00
+                15:30
               </span>
 
               <span>
@@ -323,7 +323,7 @@ export default function Home() {
                   size={18}
                 />
 
-                Sporthal De Kronkel
+                Sporthal Emanuel Hiel
               </span>
 
               <span>
