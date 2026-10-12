@@ -56,7 +56,7 @@ export default function About() {
         <div className="page-width about-story-grid">
           <div className="about-photo-wrap">
             <img
-              src="/assets/training.jpg"
+              src="/assets/about-team.png"
               alt={t(
                 'about.story.imageAlt'
               )}
