@@ -262,14 +262,32 @@ export default function Home() {
               </span>
 
               <strong>
-                17
+                07
               </strong>
 
               <span>
-                {t(
-                  'practical.matches.oct'
-                )}
+                NOV
               </span>
+            </div>
+
+            <div className="featured-team">
+              <div className="opponent-placeholder large">
+                BO
+              </div>
+
+              <div>
+                <strong>
+                  Bct Overijse
+                </strong>
+
+                <span>
+                  J18 B
+                </span>
+              </div>
+            </div>
+
+            <div className="featured-vs">
+              VS
             </div>
 
             <div className="featured-team bnb-team">
@@ -289,33 +307,13 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="featured-vs">
-              VS
-            </div>
-
-            <div className="featured-team">
-              <div className="opponent-placeholder large">
-                DB
-              </div>
-
-              <div>
-                <strong>
-                  Dynamo Bertem
-                </strong>
-
-                <span>
-                  J18 B
-                </span>
-              </div>
-            </div>
-
             <div className="featured-info">
               <span>
                 <Clock3
                   size={18}
                 />
 
-                15:30
+                13:00
               </span>
 
               <span>
@@ -323,7 +321,7 @@ export default function Home() {
                   size={18}
                 />
 
-                Sporthal Emanuel Hiel
+                Gemeentelijk Sporthal Overijse Den Heurk
               </span>
 
               <span>

@@ -16,70 +16,6 @@ const matches = [
       'practical.matches.sat',
 
     number:
-      '17',
-
-    monthKey:
-      'practical.matches.oct',
-
-    homeTeam:
-      'Brussel Noord Basket',
-
-    homeCategory:
-      'J18 A',
-
-    awayTeam:
-      'Dynamo Bertem',
-
-    awayCategory:
-      'J18 B',
-
-    time:
-      '15:30',
-
-    location:
-      'Sporthal Emanuel Hiel',
-
-    bnbSide:
-      'home',
-  },
-
-  {
-    dayKey:
-      'practical.matches.sun',
-
-    number:
-      '25',
-
-    monthKey:
-      'practical.matches.oct',
-
-    homeTeam:
-      'Brussel Noord Basket',
-
-    homeCategory:
-      'J18 A',
-
-    awayTeam:
-      'KYD Kortenberg Young Devils',
-
-    awayCategory:
-      'J18 A',
-
-    time:
-      '12:30',
-
-    location:
-      'Sportcentrum Noordpool',
-
-    bnbSide:
-      'home',
-  },
-
-  {
-    dayKey:
-      'practical.matches.sat',
-
-    number:
       '07',
 
     month:
@@ -102,6 +38,70 @@ const matches = [
 
     location:
       'Gemeentelijk Sporthal Overijse Den Heurk',
+
+    bnbSide:
+      'away',
+  },
+
+  {
+    dayKey:
+      'practical.matches.sun',
+
+    number:
+      '15',
+
+    month:
+      'NOV',
+
+    homeTeam:
+      'Brussel Noord Basket',
+
+    homeCategory:
+      'J18 A',
+
+    awayTeam:
+      'Bct Overijse',
+
+    awayCategory:
+      'J18 B',
+
+    time:
+      '12:45',
+
+    location:
+      'Pleinlaan',
+
+    bnbSide:
+      'home',
+  },
+
+  {
+    dayKey:
+      'practical.matches.sat',
+
+    number:
+      '21',
+
+    month:
+      'NOV',
+
+    homeTeam:
+      'Basket Groot Zemst',
+
+    homeCategory:
+      'J18 B',
+
+    awayTeam:
+      'Brussel Noord Basket',
+
+    awayCategory:
+      'J18 A',
+
+    time:
+      '17:00',
+
+    location:
+      'Den Turfpuf',
 
     bnbSide:
       'away',
@@ -208,11 +208,7 @@ export default function Practical() {
 
                     {match.number}{' '}
 
-                    {match.monthKey
-                      ? t(
-                          match.monthKey
-                        )
-                      : match.month}
+                    {match.month}
                   </div>
 
                   <div className="match-teams">
