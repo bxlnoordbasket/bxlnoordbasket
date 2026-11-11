@@ -13,38 +13,6 @@ import SectionHeader from '../components/SectionHeader';
 const matches = [
   {
     dayKey:
-      'practical.matches.sat',
-
-    number:
-      '07',
-
-    month:
-      'NOV',
-
-    homeTeam:
-      'Bct Overijse',
-
-    homeCategory:
-      'J18 B',
-
-    awayTeam:
-      'Brussel Noord Basket',
-
-    awayCategory:
-      'J18 A',
-
-    time:
-      '13:00',
-
-    location:
-      'Gemeentelijk Sporthal Overijse Den Heurk',
-
-    bnbSide:
-      'away',
-  },
-
-  {
-    dayKey:
       'practical.matches.sun',
 
     number:
@@ -69,7 +37,7 @@ const matches = [
       '12:45',
 
     location:
-      'Pleinlaan',
+      'Pleinlaan 3, 1050 Elsene',
 
     bnbSide:
       'home',
@@ -101,10 +69,42 @@ const matches = [
       '17:00',
 
     location:
-      'Den Turfpuf',
+      'Den Turfput, Brusselsesteenweg 3, 1980 Zemst',
 
     bnbSide:
       'away',
+  },
+
+  {
+    dayKey:
+      'practical.matches.sun',
+
+    number:
+      '29',
+
+    month:
+      'NOV',
+
+    homeTeam:
+      'Brussel Noord Basket',
+
+    homeCategory:
+      'J18 A',
+
+    awayTeam:
+      'Red Dragons Huldenberg',
+
+    awayCategory:
+      'J18 A',
+
+    time:
+      '12:30',
+
+    location:
+      'Pleinlaan 3, 1050 Elsene',
+
+    bnbSide:
+      'home',
   },
 ];
 
@@ -249,9 +249,7 @@ export default function Practical() {
                         size={17}
                       />
 
-                      {
-                        match.time
-                      }
+                      {match.time}
                     </span>
 
                     <span>
@@ -259,9 +257,7 @@ export default function Practical() {
                         size={17}
                       />
 
-                      {
-                        match.location
-                      }
+                      {match.location}
                     </span>
                   </div>
                 </article>

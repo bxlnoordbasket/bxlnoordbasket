@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import {
   ArrowRight,
   MapPin,
@@ -257,37 +258,17 @@ export default function Home() {
             <div className="featured-date">
               <span>
                 {t(
-                  'practical.matches.sat'
+                  'practical.matches.sun'
                 )}
               </span>
 
               <strong>
-                07
+                15
               </strong>
 
               <span>
                 NOV
               </span>
-            </div>
-
-            <div className="featured-team">
-              <div className="opponent-placeholder large">
-                BO
-              </div>
-
-              <div>
-                <strong>
-                  Bct Overijse
-                </strong>
-
-                <span>
-                  J18 B
-                </span>
-              </div>
-            </div>
-
-            <div className="featured-vs">
-              VS
             </div>
 
             <div className="featured-team bnb-team">
@@ -307,13 +288,33 @@ export default function Home() {
               </div>
             </div>
 
+            <div className="featured-vs">
+              VS
+            </div>
+
+            <div className="featured-team">
+              <div className="opponent-placeholder large">
+                BO
+              </div>
+
+              <div>
+                <strong>
+                  Bct Overijse
+                </strong>
+
+                <span>
+                  J18 B
+                </span>
+              </div>
+            </div>
+
             <div className="featured-info">
               <span>
                 <Clock3
                   size={18}
                 />
 
-                13:00
+                12:45
               </span>
 
               <span>
@@ -321,7 +322,7 @@ export default function Home() {
                   size={18}
                 />
 
-                Gemeentelijk Sporthal Overijse Den Heurk
+                Pleinlaan 3, 1050 Elsene
               </span>
 
               <span>
